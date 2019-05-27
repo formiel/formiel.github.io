@@ -12,58 +12,291 @@
     
     
     <item>
-      <title>Understanding and Implementing Skip-gram with Negative Sampling</title>
+      <title>Understanding Word Vectors and Implementing Skip-gram with Negative Sampling</title>
       <link>https://hangle.fr/post/word2vec/</link>
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hangle.fr/post/word2vec/</guid>
-      <description>&lt;p&gt;Many modelling tasks require text data as inputs. However, we could not just pass words or sentences to models. Computers could not be able to understand the text and hence learn from them. Therefore, featurizing the text, i.e. converting characters into numerical values, to feed the models plays a crucial role in machine learning. So, how to represent words using numbers?&lt;/p&gt;
+      <description>&lt;!-- &lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
+ --&gt;
 
-&lt;p&gt;$\newcommand{\cN}{\mathcal{N}}$&lt;/p&gt;
+&lt;h2 id=&#34;1-introduction--how-to-represent-words&#34;&gt;1. Introduction - How to represent words&lt;/h2&gt;
 
-&lt;p&gt;$\cN$&lt;/p&gt;
+&lt;p&gt;Any machine learning model needs to be fed by data. Models learn and extract knowledge from data. Data could exist in various forms such as images, videos or text. However, no matter what type of data, they all have to be transformed into numerical values so that computers could understand and process them. For example, a grayscale image is seen by computers as a matrix of pixels, where each pixel is represented by an integer ranging from 0 to 255 depending on its intensity from black (0) to white (255). Color images, on the other hand, compose three values or channels for each pixel, in which each channel measures the intensity in one dimension of the color space (including red, green and blue dimensions) and hence are perceived as 3D arrays of integers.&lt;/p&gt;
 
-&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[a+b\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So, how to enable computer to apprehend text data? Computers only see numbers, therefore we have to transform text into numbers. We could then break the text into smaller units similar to what we do with pixels for images. A natural choice is using an integer to represent each word. Thus a dictionary mapping every word with its corresponding integers and vice versa is maintained and used to encode words. However, unlike the pixels in images signifying the intensity in three different color dimensions, an integer could hardly tell us anything about its represented word such as word meaning, word senses, difference or similarity with other words. If a number is not sufficient to express a word, how about using a vector comprising many numbers where each number could encode some aspect of the word meaning? In fact, this is the most prominent method used to represent words to feed meaning-related models nowadays.&lt;/p&gt;
 
-&lt;p&gt;Let $V$ denote the total number of words in our vocabulary and $d$ denote the embedding dimension (which is a hyperparameter). The parameters of our model consist of two matrices: $\W\in\RR^{d\times V}$ and $\C\in\RR^{V\times d}$. For any word (index) $t$ let $\w_t,\c_t$ respectively denote the $t^\text{th}$ &lt;em&gt;column&lt;/em&gt; of $\W$ and the $t^\text{th}$ \textit{row} of $\C$. Our loss function over the whole training set can be expressed as:&lt;/p&gt;
+&lt;p&gt;The earliest work of using vectors to represent words as points in high-dimensional space is the work of Osgood et al. (1957) on affective meanings or &lt;em&gt;connotations&lt;/em&gt;, the aspects of a word&#39;s meaning that are related to emotions, sentiments, opinions or evaluations. Osgood et al. defined three dimensions over which a word could be expressed. These dimensions are:&lt;/p&gt;
 
-&lt;p&gt;\begin{equation}
-a + b + c + a + b + c + a + b + c + a + b + c + a + b + c + a + b + c + a + b + c + a + b + c +
-\end{equation}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;valence&lt;/em&gt;: the pleasantness of the stimulus&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;arousal&lt;/em&gt;: the intensity of emotion provoked by the stimulus&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;dominance&lt;/em&gt;: the degree of control exerted by the stimulus&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;code&gt;$\begin{align}
-L(\thetab) = &amp;amp;\sum_{(t,p) \in +} - \log \frac{1}{1 + \exp(-\w_t^\top \c_p)} \\\\ &amp;amp; + a \sum_{(t,n)}
-\end{align}$&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Valence&lt;/th&gt;
+&lt;th&gt;Arousal&lt;/th&gt;
+&lt;th&gt;Dominance&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;courageous&lt;/td&gt;
+&lt;td&gt;8.05&lt;/td&gt;
+&lt;td&gt;5.5&lt;/td&gt;
+&lt;td&gt;7.38&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;music&lt;/td&gt;
+&lt;td&gt;7.67&lt;/td&gt;
+&lt;td&gt;5.57&lt;/td&gt;
+&lt;td&gt;6.5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;heartbreak&lt;/td&gt;
+&lt;td&gt;2.45&lt;/td&gt;
+&lt;td&gt;5.65&lt;/td&gt;
+&lt;td&gt;3.58&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cub&lt;/td&gt;
+&lt;td&gt;6.71&lt;/td&gt;
+&lt;td&gt;3.95&lt;/td&gt;
+&lt;td&gt;4.24&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;life&lt;/td&gt;
+&lt;td&gt;6.68&lt;/td&gt;
+&lt;td&gt;5.59&lt;/td&gt;
+&lt;td&gt;5.89&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;(source: &lt;a href=&#34;https://web.stanford.edu/~jurafsky/slp3/&#34;&gt;Chapter 6: Vector Semantics - Speech and Language Processing&lt;/a&gt;.
+Dan Jurafsky and James H. Martin.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;However, three dimensions is unlikely to convey multiple aspects of a word&#39;s meaning. But how should we build such a computational model that could capture different aspects of word meaning and transfer them into different dimension as we want? First, we need to define what a word meaning is. Linguists in the 1950&#39;s came up with a hypothesis called &lt;em&gt;&lt;strong&gt;distributional hypothesis&lt;/strong&gt;&lt;/em&gt; which emphasizes the role of context in word meaning.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Words that occur in &lt;em&gt;similar context&lt;/em&gt; tend to have similar meanings.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It suggests that we could define a word by the environment or distribution it occurs in language use. This hypothesis is the fundamental concept lying at the heart of almost all words representation learning models. In fact, vector models based on distributional hypothesis are now the standard way to encode the meaning of words. There are two most commonly used models: count-based methods and Word2vec. I will briefly describe these two methods in Part 2 and Part 3. The detailed implementation of Skip-gram with Negative Sampling (SGNS), one of the algorithms of Word2vec, is presented in Part 4.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-countbased-methods&#34;&gt;2. Count-based methods&lt;/h2&gt;
+
+&lt;p&gt;The models using count-based methods are generally based on a &lt;em&gt;&lt;strong&gt;co-occurrence matrix&lt;/strong&gt;&lt;/em&gt; i.e. a matrix that counts how often words appear together.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(1) Word-Document matrix&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Each row $i$ represents a word in the dictionary and each column $j$ represents a document. Each cell $(i, j)$ counts the number of times the word in row $i$ appears in the document $j$.&lt;/li&gt;
+&lt;li&gt;Dimension: $V \times M$, where $V$ is the vocabulary size and $M$ is the number of documents.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Row vectors&lt;/em&gt; are word vectors. The dimension of word vectors is $M$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The context that we choose to define a word in this case is documents. We can see that the choice of documents strongly affects the quality of the word &lt;em&gt;embeddings&lt;/em&gt; (or word vectors).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(2) Window-based co-occurrence matrix&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Each row $i$ represents a word and each column $j$ also represents a word in the dictionary. Each cell $(i, j)$ countes the number of times the (target) word in row $i$ and the (context) word in column $j$ co-occur in a window of $m$ words around the target word.&lt;/li&gt;
+&lt;li&gt;Dimension: $V \times V$, where $V$ is the vocabulary size&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Row or column vectors&lt;/em&gt; are word vectors. The dimension of word vectors is $V$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The context now is not documents, but a window including $2m$ words (or less depending on the word&#39;s position) around the target word.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(3) Term Frequency - Inverse Document Frequency (Tf-idf) weighted vectors&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The simple raw frequency in the word-document and word-word matrices has some limitations in measuring the association between words when it comes to frequently used words like &lt;em&gt;the, a, an, it, they&lt;/em&gt; etc. The ubiquitous words do not carry discriminative information and therefore are deemed to be unimportant. Term frequency - inverse document frequency (tf-idf) is an algorithm used to adjust a word frequency based on the following two terms:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;term frequency (tf)&lt;/em&gt;: the frequency of the word ($t$) in the document ($d$). We use $\log_{10}$ of the frequency to downweigh the raw frequency of a word. For example, a word has $tf=2$ if it appears 10 times, $tf=3$ if it appears 100 times etc.
+&lt;code&gt;$$\begin{equation*} tf_{t, d} = \begin{cases}
+  1 + \log_{10} &amp;amp; \text{count($t, d$) } \text{if count($t, d$)} &amp;gt; 0\\
+  0 &amp;amp; \text{otherwise}
+\end{cases}
+\end{equation*}$$&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;inverse document frequency (idf)&lt;/em&gt;: inverse of the document frequency ($df_t$), which is the number of documents a word $t$ occurs in. It gives higher weights to words that occur only in a few documents since these terms may carry useful information to distinguish the documents from other documents in the collection.
+&lt;code&gt;$$\begin{equation*}
+idf_t = \log_{10} \left(\frac{N}{df_t} \right)
+\end{equation*}$$&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The tf-idf weighting of a word $t$ in document $d$, denotes as $w_{t, d}$, is the product of the two terms $tf_{t,d}$ and $idf_t$.
+&lt;code&gt;$$\begin{equation*}
+w_{t, d} = tf_{t, d} \times idf_t
+\end{equation*}$$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(4) Positive Pointwise Mutual Information (PPMI) weighted matrix&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;PPMI is an alternative weighting function to tf-idf. This method is based on PMI, a measure of association used in information theory. The intuition is that the association between 2 words $w$ and $c$ could be measured by how often these 2 words co-occur compared with the probability that they appear together purely by chance assuming they were independent. It is common to use positive values of PMI as negative ones is not intuitively interpretable.
+&lt;code&gt;$$\begin{equation*}
+PPMI(w,c) = \text{max} \left (\log_2 \frac{P(w,c)}{P(w)P(c)}, 0 \right)
+\end{equation*}$$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Assuming we have a co-occurrence matrix $F$ with target words in rows and contexts words in columns. $f_{ij}$ denotes the elements at row $i$ and column $j$. $f_{ij}$ counts the number of times word $w_i$ occurs in context $c_j$. We have the PPMI value of word $w_i$ with context $c_j$ as follows:
+&lt;code&gt;$$\begin{equation*}
+P(w,c) = p_{ij} = \frac{f_{ij}}{\sum_{i}\sum_{j} f_{ij}}
+\end{equation*}$$&lt;/code&gt;
+&lt;code&gt;$$\begin{align*}
+P(w) = p_{i*} = \frac{\sum_{j}f_{ij}}{\sum_{i}\sum_{j} f_{ij}} ; \quad
+P(c) = p_{*j} = \frac{\sum_{i}f_{ij}}{\sum_{i}\sum_{j} f_{ij}} 
+\end{align*}$$&lt;/code&gt;
+&lt;code&gt;$$\begin{equation*}
+PPMI_{ij} = \text{max} \left (\log_2 \frac{p_{ij}}{p_{i*}p_{*j}}, 0 \right)
+\end{equation*}$$&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-word2vec&#34;&gt;3. Word2vec&lt;/h2&gt;
+
+&lt;p&gt;Word vectors constructed using count-based methods are highly sparse. The dimension is the vocabulary size $V$ with many zeros elements as one word normally does not co-occur with many other words in the dictionary. Although there exists algorithms to efficiently handle sparse matrices, the high dimensionality of word vectors would add complexity to the models using them as inputs. One may think of performing dimentionality reduction using Singular Value Decomposition (SVD), however it would be very costly (quadratic cost) to perform SVD since the vocabulary size $V$ is large (normally $10^6$).&lt;/p&gt;
+
+&lt;p&gt;Instead of directly computing all co-occurrence word counts, iteration-based methods learn to encode the probability of a word given its context in one iteration at a time. The idea is to train a model with parameters are the word vectors themselves on some loss function. Iteratively, we update the parameters to reduce the loss and eventually learn our word representation vectors. Word2vec proposed by Mikolov et al. (2013) is an efficient method based on that principle to learn word embeddings. There are 2 algorithms presented in the Word2vec paper: continuous bag-of-words (CBOW) and skip-gram.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(1) Continuous bag-of-words (CBOW)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;CBOW tries to predict a center word from its surrounding context. Let $w_i$ denotes the word $i$ from vocabulary. The parameters of our model consist of two matrices $\V \in \RR^{n \times V}$ and $\U \in \RR^{V \times n}$. $v_i$ is the $i$-th column of $\V$, the input vector of word $w_i$. $u_i$ is the $i$-th row of $\U$, the output vector of word $w_i$.&lt;/p&gt;
+
+&lt;p&gt;In CBOW model, the context vector $\hat{v}$ is represented by taking average of the word context vectors &lt;code&gt;$\begin{equation}\hat{v} = \frac{v_{c-m} + \dots + v_{c-1} + v_{c+1} + \dots v_{c+m}}{2m} \end{equation}$&lt;/code&gt;. We want to maximize the probability of the center word given its context of window $m$, which is equivalent to minimize the negative logarithm of that probability i.e. &lt;code&gt;$\begin{equation}P(u_c|\hat{v}) \end{equation}$&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The probability of a word vector given another word vector is computed using the softmax of the dot product of the 2 vectors. The dot product gives us a score. The higher this score is, the closer the 2 vectors or 2 words are together. The softmax operator turns this score into probability.&lt;/p&gt;
+
+&lt;p&gt;The objective function for one word is as follow:
+&lt;code&gt;$$\begin{align*}
+\text{minimize } J &amp;amp;= - \log P(w_c|w_{c-m}, \dots , w_{c-1}, w_{c+1}, \dots w_{c+m}) \\\\
+&amp;amp;= - \log P(u_c|\hat{v}) \\\\
+&amp;amp;= - \log \frac{\exp(u_c ^\top \hat{v})}{\sum_{j=1}^{V} \exp(u_j ^\top \hat{v})} \\\\
+&amp;amp;= -u_c ^\top \hat{v} + \log \sum_{j=1}^{V} \exp(u_j ^\top \hat{v}) \\\\
+\end{align*}$$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We compute the derivatives of the loss function $J$ with respect to the parameters and update the parameters $\U, \V$ iteratively to eventually obtain the parameters, which are the word vectors themselves.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(2) Skip-gram&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Opposite to CBOW, skip-gram tries to predict context words from a center word. Using similar notations to CBOW and based on the same principle, the objective function using skip-gram for one word is then formulated as follow:
+&lt;code&gt;$$\begin{align*}
+\text{minimize } J &amp;amp;= - \log P(w_{c-m}, \dots , w_{c-1}, w_{c+1}, \dots w_{c+m}|w_c) \\\\
+&amp;amp;= - \log \prod_{j=0, j \neq m}^{2m} P(w_{c-m+j}|w_c) \\\\
+&amp;amp;= - \log \prod_{j=0, j \neq m}^{2m} P(u_{c-m+j}|v_c) \\\\
+&amp;amp;= - \log \prod_{j=0, j \neq m}^{2m} \frac{\exp (u_{c-m+j}^ \top) v_c}{\sum_{k=1}^{V} \exp(u_k ^\top v_c)} \\\\
+&amp;amp;= - \sum_{j=0, j \neq m}^{2m} u_{c-m+j}^\top v_c + 2m \log \sum_{k=1}^{V} \exp(u_k ^\top v_c) 
+\end{align*}$$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Similar to CBOW, we update the parameters using stochastic gradient descent to obtain the word vectors.&lt;/p&gt;
+
+&lt;h2 id=&#34;4-implementation-of-skipgram-with-negative-sampling-sgns&#34;&gt;4. Implementation of Skip-gram with Negative Sampling (SGNS)&lt;/h2&gt;
+
+&lt;p&gt;The authors of Word2vec proposed negative sampling, a method to speed up the training process and improve the model performance in the paper &lt;em&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/em&gt; (Tomas Mikolov et al.). Now, let me walk through the implementation of skip-gram with negative sampling where I take the derivatives and build the algorithms on my own from scratch using Numpy. You could refer to my code in the following &lt;a href=&#34;https://github.com/formiel/word2vec&#34;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A main idea in negative sampling is that instead of looping over the entire vocabulary to compute the loss function, we could just take several negative examples from a noise distribution whose probabilities match the word frequency. We will use sigmoid function instead of softmax and the loss function to optimize is also changed. I will describe in details in the later part.&lt;/p&gt;
+
+&lt;p&gt;Below is the steps on how to implement SGNS:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Obtain positive examples from the neigboring context of a target word&lt;/li&gt;
+&lt;li&gt;Obtain negative examples by randomly sampling words in the lexicon based on a unigram distribution&lt;/li&gt;
+&lt;li&gt;Train the model by optimizing the loss function&lt;/li&gt;
+&lt;li&gt;Use the regression weights as the embedding vectors&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let $V$ denote the total number of words in our vocabulary and $d$ denote the embedding dimension (which is a hyperparameter). The parameters of the model consist of two matrices: $\W\in\RR^{d\times V}$ and $\C\in\RR^{V\times d}$. For any word (index) $t$ let $\w_t,\c_t$ respectively denote the $t^\text{th}$ &lt;em&gt;column&lt;/em&gt; of $\W$ and the $t^\text{th}$ \textit{row} of $\C$. The loss function over the whole training set can be expressed as:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;$$\begin{equation}
 L(\thetab) = \sum_{(t,p) \in +} - \log \frac{1}{1 + \exp(-\w_t^\top \c_p)} + \sum_{(t,n) \in -} - \log \frac{1}{1 + \exp(\w_t^\top \c_n)},
 \end{equation}$$&lt;/code&gt;
 which can be understood as the negative log-likelihood of the data. The signs $+$ and $-$ respectively denote the set of positive and negative training instances.&lt;/p&gt;
 
-&lt;p&gt;The parameters of our model is $\thetab = (\W, \C)$ and our objective is to minimize $L$ with respect to $\W$ and $\C$. A common solution is to use stochastic gradient descent, where in each iteration we minimize a \textit{local} loss function with respect to a positive pair $(t,p)$:
+&lt;p&gt;The parameters of the model is $\thetab = (\W, \C)$ and the objective is to minimize $L$ with respect to $\W$ and $\C$. A common solution is to use stochastic gradient descent, where in each iteration I minimize a &lt;em&gt;local&lt;/em&gt; loss function with respect to a positive pair $(t,p)$:
 &lt;code&gt;$$\begin{equation}\label{eq:loss-tp}
 L_{(t,p)} = -\log \frac{1}{1 + \exp(-\w_t^\top \c_p)} + \sum_{n \in \cN(t,p)} - \log \frac{1}{1 + \exp(\w_t^\top \c_n)},
 \end{equation}$$&lt;/code&gt;
-where $\cN(t,p)$ denote the set of negative samples with respect to $t$, generated for the positive sample $p$ (for positive sample we generate $K$ negative samples).
-With simple calculus, we obtain the following partial derivatives:
-&lt;code&gt;$\begin{align}
-\pdv{L_{(t,p)}}{\w_t} &amp;amp;= - s_p\c_p + \sum_{n \in \cN(t,p)}  s_n\c_n, \\
-\pdv{L_{(t,p)}}{\c_p} &amp;amp;= - s_p\w_t, \\
-\pdv{L_{(t,p)}}{\c_n} &amp;amp;= s_n\w_t \quad\forall n \in \cN(t,p)
-\end{align}$&lt;/code&gt;
-where we have denoted
+where $\cN(t,p)$ denote the set of negative samples with respect to $t$, generated for the positive sample $p$ (for one positive sample I generate $K$ negative samples). With simple calculus, I obtain the following partial derivatives:
+&lt;code&gt;$$\begin{align}
+\frac{\partial{L_{(t,p)}}}{\partial {\w_t}} &amp;amp;= - s_p\c_p + \sum_{n \in \cN(t,p)}  s_n\c_n, \\
+\frac{\partial{L_{(t,p)}}}{\partial{\c_p}} &amp;amp;= - s_p\w_t, \\
+\frac{\partial{L_{(t,p)}}}{\partial{\c_n}} &amp;amp;= s_n\w_t \quad\forall n \in \cN(t,p)
+\end{align}$$&lt;/code&gt;
+where I have denoted
 \begin{equation}
 s_p = \frac{1}{1 + \exp(\w_t^\top \c_p)},\quad s_n = \frac{1}{1 + \exp(-\w_t^\top \c_n)}.
 \end{equation}
 Once we have computed the above derivatives, we can apply gradient descent updates as follows:
 &lt;code&gt;$\begin{align}
-\w_t &amp;amp;\gets \w_t - \alpha\pdv{L_{(t,p)}}{\w_t},\label{eq:descent-wt}\\
-\c_p &amp;amp;\gets \c_p - \alpha\pdv{L_{(t,p)}}{\c_p},\label{eq:descent-cp}\\
-\c_p &amp;amp;\gets \c_p - \alpha\pdv{L_{(t,p)}}{\c_p},\label{eq:descent-cn}
+\w_t &amp;amp;\gets \w_t - \alpha \frac{\partial{L_{(t,p)}}}{\partial {\w_t}},\label{eq:descent-wt}\\
+\c_p &amp;amp;\gets \c_p - \alpha \frac{\partial{L_{(t,p)}}}{\partial{\c_p}},\label{eq:descent-cp}\\
+\c_p &amp;amp;\gets \c_n - \alpha \frac{\partial{L_{(t,p)}}}{\partial{\c_n}},\label{eq:descent-cn}
 \end{align}$&lt;/code&gt;
 where $\alpha$ is the step-size (which is another hyperparameter).&lt;/p&gt;
 
-&lt;p&gt;From \eqref{eq:loss-tp} we have&lt;/p&gt;
+&lt;p&gt;An epoch of the training loop can be sketched as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For each word $t$:
+
+&lt;ul&gt;
+&lt;li&gt;For each positive sample $p$ with respect to $t$:&lt;/li&gt;
+&lt;li&gt;Get the set $\cN(t,p)$ of negative samples (w.r.t. $t$).&lt;/li&gt;
+&lt;li&gt;Compute the partial derivatives &lt;code&gt;$\frac{\partial{L_{(t,p)}}}{\partial {\w_t}}, \frac{\partial{L_{(t,p)}}}{\partial{\c_p}}$&lt;/code&gt; and &lt;code&gt;$\frac{\partial{L_{(t,p)}}}{\partial{\c_n}}$&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Update $\w_t, \c_p$ and $\c_n$ using \eqref{eq:descent-wt}, \eqref{eq:descent-cp} and \eqref{eq:descent-cn}.&lt;/li&gt;
+&lt;li&gt;Compute the loss value \eqref{eq:loss-tp} and add to the accumulated loss.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below is the Python code of the inner loop. In the code, I used the variable &lt;code&gt;$s_{neg}$&lt;/code&gt; to denote a vector of all $s_n$, i.e. &lt;code&gt;$\set{s_n}_{n \in \cN(t,p)}$&lt;/code&gt;. For further detail please refer to the Github code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# context vector of the postive sample and the negative ones
+cp = C[p, :]
+C_neg = C[negative_samples, :]
+
+# intermediate values that are helpful
+sp = sigmoid(-np.dot(cp, wt))
+s_neg = sigmoid(np.dot(C_neg, wt))
+
+# Compute partial derivatives
+dwt = -sp*cp + np.dot(s_neg, C_neg)
+dcp = -sp*wt
+dC_neg = np.outer(s_neg, wt)
+
+# Gradient descent updates
+wt -= stepsize*dwt
+cp -= stepsize*dcp
+C_neg -= stepsize*dC_neg
+
+loss = -np.log(sigmoid(np.dot(cp, wt))) \
+      + np.sum(-np.log(sigmoid(-np.dot(C_neg, wt))))
+loss_epoch += loss
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another possible implementation can consist of only one loop:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For each word $t$:
+
+&lt;ul&gt;
+&lt;li&gt;Get the set of $\cP(t)$ of positive samples (w.r.t. $t$).&lt;/li&gt;
+&lt;li&gt;Get the set $\cN(t)$ of negative samples (w.r.t. $t$).&lt;/li&gt;
+&lt;li&gt;Compute partial derivatives, gradient descent updates, and loss computation (as before).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is indeed my first attempt but then I realized that this is not memory efficient (although it can be faster).&lt;/p&gt;
+
+&lt;p&gt;I obtained the word vectors from the parameters of the matrix $\W$. We could also get the word embeddings by taking average of the two matrices $\W$ and $\C$ or by concatenating them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Model performance:&lt;/strong&gt; My SGNS model has been trained on the Billion Word Corpus and achieved a correlation of 0.9 with the human-annotated word similarity SimLex-999, a standard resource for the evaluation of word representation learning models.&lt;/p&gt;
 
 &lt;h4 id=&#34;references&#34;&gt;References&lt;/h4&gt;
 
@@ -74,7 +307,7 @@ Mikolov, Tomas, et al.&lt;/li&gt;
 Mikolov, Tomas, et al.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~jurafsky/slp3/&#34;&gt;Speech and Language Processing&lt;/a&gt;.
 Dan Jurafsky and James H. Martin.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://cs224d.stanford.edu/lecture_notes/notes1.pdf&#34;&gt;Lecture notes CS224D: Deep Learning for NLP.&lt;/a&gt;.
+&lt;li&gt;&lt;a href=&#34;https://cs224d.stanford.edu/lecture_notes/notes1.pdf&#34;&gt;Lecture notes CS224N: Deep Learning for NLP.&lt;/a&gt;.
 Francois Chaubard, Rohit Mundra, Richard Socher.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.cs.bgu.ac.il/~yoavg/publications/negative-sampling.pdf&#34;&gt;word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method&lt;/a&gt;.
 Yoav Goldberg and Omer Levy.&lt;/li&gt;
@@ -83,20 +316,59 @@ Yoav Goldberg and Omer Levy.&lt;/li&gt;
     </item>
     
     <item>
-      <title>A Guide to Data Science for Absolute Beginners</title>
+      <title>Best Data Science Resources for Absolute Beginners</title>
       <link>https://hangle.fr/post/ds-beginner/</link>
-      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hangle.fr/post/ds-beginner/</guid>
       <description>
 
-&lt;p&gt;When I started studying data science, I had spent quite some time to find resources best fit to my background and my needs. The ones listed below have helped me tremendously in my study. I hope you will find some of them helpful in your learning as well.&lt;/p&gt;
+&lt;p&gt;When I started studying data science, I spent a lot of time to find resources that best fit my background and my needs. The ones listed below have helped me tremendously in my study. I hope you will find some of them helpful in your learning as well.&lt;/p&gt;
+
+&lt;!-- Choosing the right resources to learn is perhaps the most important step 
+
+why reading books seems to , I found that very effective way
+
+A big mistake that I made at the beginning was to short books, as I thought that short books are more concise 
+
+Reading a thick but well-written book would save you a lot of time compared to reading  --&gt;
 
 &lt;!-- I think that the first and most important thing is to equip myself with a solid foundation in the mathematics essential to the field i.e. Linear Algebra, Calculus and Statistics. I had these courses in my undergraduate but it has been years since my graduation, hence I want to follow comprehensive courses in these subjects, not just review the concepts. 
 
 There is a large number of resources for each subject. I was overwhelmed and over-excited at first. As a result, I kept studying and switching between multiple courses at the same time. However, I found out later that this was ineffective to me and slowing down my progress. I then followed thoroughly one book or course for each subject at a time before moving on to another.  --&gt;
 
-&lt;h2 id=&#34;1-linear-algebra&#34;&gt;1. Linear Algebra&lt;/h2&gt;
+&lt;h2 id=&#34;1-programming&#34;&gt;1. Programming&lt;/h2&gt;
+
+&lt;!-- &lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;mit1805.jpg&#34;/&gt;
+&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;AllOfStatistics_cover.jpg&#34;/&gt; --&gt;
+
+&lt;!-- &lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;AoS_mit1805.png&#34;/&gt; --&gt;
+
+&lt;p&gt;A fundamental skill that any data scientist must have is &lt;em&gt;programming&lt;/em&gt;. The most popular programming languages are without a doubt &lt;strong&gt;Python&lt;/strong&gt; and &lt;strong&gt;R&lt;/strong&gt;. You should learn both but if you have to pick one, choose Python. It has been the &lt;a href=&#34;https://stackoverflow.blog/2017/09/06/incredible-growth-python/&#34; target=&#34;_blank&#34;&gt;fastest-growing&lt;/a&gt; major language, and also the &lt;a href=&#34;https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-languages&#34; target=&#34;_blank&#34;&gt;most wanted&lt;/a&gt; language, for the several years in a row.&lt;/p&gt;
+
+&lt;!-- With my graduate program, I was provided with a paid account on DataCamp, and while I could learn quite effectively Python and R on that platform, I don&#39;t recommend it. First, because it&#39;s not free. Moreover, (you can learn more about his [here](https://noamross.github.io/datacamp-sexual-assault/) or [here](https://www.r-bloggers.com/before-you-take-my-datacamp-course-please-consider-this-info/)). --&gt;
+
+&lt;!-- There are definitely better free-of-charge alternatives. Instead, --&gt;
+
+&lt;p&gt;I strongly recommend &lt;a href=&#34;https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;MIT 6.0001 Introduction to Computer Science and Programming in Python&lt;/strong&gt;&lt;/a&gt;, which is the &lt;a href=&#34;https://ocw.mit.edu/courses/most-visited-courses/&#34; target=&#34;_blank&#34;&gt;most visited course of MIT OpenCourseWare&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-probability-and-statistics&#34;&gt;2. Probability and Statistics&lt;/h2&gt;
+
+&lt;!-- &lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;mit1805.jpg&#34;/&gt;
+&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;AllOfStatistics_cover.jpg&#34;/&gt; --&gt;
+
+&lt;p&gt;&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;AoS_mit1805.png&#34;/&gt;
+The lecture notes of &lt;a href=&#34;https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;MIT 18.05 Introduction to Probability and Statistics&lt;/strong&gt;&lt;/a&gt; is an excellent study resource for a quick review of probability and statistics with clear and intuitive explanations. This is perhaps the &lt;strong&gt;best introduction to Probability and Statistics&lt;/strong&gt; that I have ever seen.&lt;/p&gt;
+
+&lt;p&gt;After finishing the above lecture notes, for a better coverage, I recommend you to continue with the book &lt;a href=&#34;https://www.stat.cmu.edu/~larry/all-of-statistics/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;All of Statistics: A Concise Course in Statistical Inference&lt;/strong&gt;&lt;/a&gt; by Larry A. Wasserman. The book provides a broad and as the name of the book indicated, &lt;em&gt;concise&lt;/em&gt; coverage of probability and statistics, including basic and modern concepts that are closely related to machine learning.&lt;/p&gt;
+
+&lt;!-- The preface of the author has said this best. --&gt;
+
+&lt;!-- &gt; Students who analyze data, or who aspire to develop new methods for analyzing data, should be well grounded in basic probability and mathematical statistics. Using fancy tools like neural nets, boosting, and support vector machines without understanding basic statistics is like doing brain surgery before knowing how to use a band-aid.
+
+&gt; But where can students learn basic probability and statistics quickly? Nowhere. At least, that was my conclusion when my computer science colleagues kept asking me: “Where can I send my students to get a good understanding of modern statistics quickly?” The typical mathematical statistics course spends too much time on tedious and uninspiring topics (counting methods, two dimensional integrals, etc.) at the expense of covering modern concepts (bootstrapping, curve estimation, graphical models, etc.). --&gt;
+
+&lt;h2 id=&#34;3-linear-algebra&#34;&gt;3. Linear Algebra&lt;/h2&gt;
 
 &lt;!-- 
 
@@ -114,45 +386,75 @@ There is a large number of resources for each subject. I was overwhelmed and ove
 
 &lt;/figure&gt; --&gt;
 
-&lt;p&gt;I checked out one or two books borrowed from the school library and the Linear Algebra series in Khan Academy. However, I could only appreciate the beauty of matrices thanks to &lt;em&gt;MIT 18.06 Linear Algebra&lt;/em&gt; course of Professor Gilbert Strang. I would recommend you to watch the lectures and doing exercises in his book &lt;em&gt;Introduction to Linear Albera, 5th edition&lt;/em&gt; if you have time.&lt;/p&gt;
+&lt;!-- 
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;linearalgebra5_Front.jpg&#34; width=&#34;200&#34; /&gt;
+
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; &gt;
+  &lt;h4&gt;Introduction to Linear Algebra, Fifth Edition&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt; --&gt;
+
+&lt;p&gt;&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;linearalgebra5_Front.jpg&#34;/&gt;
+After struggling with two books borrowed from my school&amp;rsquo;s library, and also with the Linear Algebra series from Khan Academy, I could only appreciate the beauty of matrices thanks to the &lt;a href=&#34;https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;MIT 18.06 Linear Algebra&lt;/strong&gt;&lt;/a&gt; course of Prof. Gilbert Strang. This is for many people, myself included, the &lt;strong&gt;best introduction to Linear Algebra&lt;/strong&gt;. In parallel with watching the lectures, I would recommend you to do exercises in his book &lt;a href=&#34;http://math.mit.edu/~gs/linearalgebra/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Introduction to Linear Algebra, 5th edition&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- 
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;linearalgebra5_Front.jpg&#34; /&gt;
+
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; &gt;
+  &lt;h4&gt;Introduction to Linear Algebra, Fifth Edition&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt; --&gt;
 
 &lt;!-- ## 2. Calculus --&gt;
 
-&lt;h2 id=&#34;2-probability-and-statistics&#34;&gt;2. Probability and Statistics&lt;/h2&gt;
+&lt;h2 id=&#34;4-optimization&#34;&gt;4. Optimization&lt;/h2&gt;
 
-&lt;p&gt;The lecture notes of &lt;em&gt;MIT 18.05 Introduction to Probability and Statistics&lt;/em&gt; by Profs. Jeremy Orloff and Jonathan Bloom is an excellent study resource for a quick review of probability and statistics with clear and intuitive explanations.&lt;/p&gt;
+&lt;p&gt;&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;bv_cvxbook_cover.jpg&#34;/&gt;
+&lt;!-- Optimization is of central importance to almost all machine learning algorithms. Having an adequate understanding of optimization frameworks is essential to any machine learning and data science practitioners. The book that I recommend is [**Convex Optimization**](https://web.stanford.edu/~boyd/cvxbook/) by Stephen Boyd and Lieven Vandenberghe. You can also follow the online courses instructed by Prof. Boyd via Stanford Lagunita or Youtube. --&gt;
+Optimization is of central importance in Data Science. I have learned many things from the &lt;a href=&#34;http://web.stanford.edu/class/ee364a/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Stanford EE364 Convex Optimization&lt;/strong&gt;&lt;/a&gt; course (lecture videos are available on &lt;a href=&#34;https://www.youtube.com/playlist?list=PL3940DD956CDF0622&#34; target=&#34;_blank&#34;&gt;YouTube&lt;/a&gt;) and its accompanying textbook &lt;a href=&#34;https://web.stanford.edu/~boyd/cvxbook/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Convex Optimization&lt;/strong&gt;&lt;/a&gt; by Stephen Boyd and Lieven Vandenberghe. However, I have to admit that I have finished only a small part of these resources as they were not so easy to digest. One of my main objectives for the next few months is to finish them, because I feel that what I have learned from my graduate program is really not enough.&lt;/p&gt;
 
-&lt;p&gt;In addition, I also followed the book &lt;em&gt;All of Statistics: A Concise Course in Statistical Inference&lt;/em&gt; by Larry A. Wasserman. The book provides a broad and as the name of the book indicated, &lt;em&gt;concise&lt;/em&gt; coverage of probability and statistics. It covers basic and modern concepts in probability and statistics that are closely related to machine learning.&lt;/p&gt;
+&lt;!-- You can also follow the online courses instructed by Prof.Boyd via Stanford Lagunita or Youtube. --&gt;
 
-&lt;!-- The preface of the author has said this best. --&gt;
+&lt;h2 id=&#34;5-machine-learning&#34;&gt;5. Machine Learning&lt;/h2&gt;
 
-&lt;!-- &gt; Students who analyze data, or who aspire to develop new methods for analyzing data, should be well grounded in basic probability and mathematical statistics. Using fancy tools like neural nets, boosting, and support vector machines without understanding basic statistics is like doing brain surgery before knowing how to use a band-aid.
+&lt;p&gt;&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;ISLCover.jpg&#34;/&gt;
+The book &lt;a href=&#34;http://www-bcf.usc.edu/~gareth/ISL/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;An Introduction to Statistical Learning with Applications in R&lt;/strong&gt;&lt;/a&gt; (also known as ISL) is a very good read to any beginner.&lt;/p&gt;
 
-&gt; But where can students learn basic probability and statistics quickly? Nowhere. At least, that was my conclusion when my computer science colleagues kept asking me: “Where can I send my students to get a good understanding of modern statistics quickly?” The typical mathematical statistics course spends too much time on tedious and uninspiring topics (counting methods, two dimensional integrals, etc.) at the expense of covering modern concepts (bootstrapping, curve estimation, graphical models, etc.). --&gt;
+&lt;p&gt;Besides, following the Professor Andrew Ng&amp;rsquo;s &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Machine Learning&lt;/strong&gt;&lt;/a&gt; course has proved to be highly profitable to my learning. I love Prof. Andrew Ng&amp;rsquo;s teaching style where complicated concepts become crystal clear through his explanations. I found the practical assignments building algorithms from scratch in the course extremely useful to grasp the associated algorithms.&lt;/p&gt;
 
-&lt;h2 id=&#34;3-optimization&#34;&gt;3. Optimization&lt;/h2&gt;
+&lt;p&gt;For an upper level, I would suggest two books, &lt;em&gt;Pattern Recognition and Machine Learning&lt;/em&gt; by Christopher M. Bishop and &lt;em&gt;The Elements of Statistical Learning&lt;/em&gt; by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie. These two books are considered to be the best textbooks of Machine Learning by many people. I personally found it easier to start with ISL, though.&lt;/p&gt;
 
-&lt;p&gt;Optimization is of central importance to almost all machine learning algorithms. Having an adequate understanding of optimization frameworks is essential to any machine learning and data science practitioners. The book that I recommend is &lt;em&gt;Convex Optimization&lt;/em&gt; by Stephen Boyd and Lieven Vandenberghe. You can also follow the online courses instructed by Prof. Boyd via Stanford Lagunita or Youtube.&lt;/p&gt;
+&lt;!-- ## 6. Deep Learning
+&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;dl_with_python.jpg&#34;/&gt;
+If you do a quick Google search, you will see that many people recommend the Deep Learning book by Ian Goodfellow, Yoshua Bengio, and Aaron Courville. I don&#39;t. It may be an excellent book for researchers, but for me it is not a good textbook for beginners.
 
-&lt;h2 id=&#34;4-machine-learning&#34;&gt;4. Machine Learning&lt;/h2&gt;
+There are three resources that I strongly recommend to get started with Deep Learning.
 
-&lt;p&gt;The book &lt;em&gt;An Introduction to Statistical Learning with Applications in R&lt;/em&gt; by Daniela Witten, Gareth James, Robert Tibshirani, and Trevor Hastie is a very good read to any beginner.&lt;/p&gt;
+1. Andrew Ng&#39;s [Coursera Deep Learning course](https://www.coursera.org/specializations/deep-learning). 
+2. 
+&lt;img style=&#34;float: right; margin:0px 0px 0px 20px&#34; width=&#34;200&#34; src=&#34;pytorch.png&#34;/&gt;
 
-&lt;p&gt;Besides, following the &lt;em&gt;Machine Learning&lt;/em&gt; course of Professor Andrew Ng on Coursera has proved to be highly profitable to my learning. I love Prof. Andrew Ng&amp;rsquo;s teaching style where complicated concepts become crystal clear through his explanations. I found the practical assignments building algorithms from scratch in the course extremely useful to grasp the associated algorithms.&lt;/p&gt;
+PyTorch documentation --&gt;
 
-&lt;p&gt;For an upper level, I would suggest two books, &lt;em&gt;Pattern Recognition and Machine Learning&lt;/em&gt; by Christopher M. Bishop and &lt;em&gt;The Elements of Statistical Learning&lt;/em&gt; by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie. These two books are considered to be the best textbooks of Machine Learning by many people.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;In conclusion, there is a large number of online resources and what works for some may not be found as useful by others. This is only recommendations based on my personal experience. I hope that you will find the ones that are best suited to you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Passing arguments to a Python program</title>
-      <link>https://hangle.fr/post/argparse/</link>
-      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hangle.fr/post/argparse/</guid>
-      <description>&lt;p&gt;One of the&amp;hellip; Using the &lt;code&gt;argparse&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;There is a large number of online resources and what works for some may not be found as useful by others. This is only recommendations based on my personal experience. I hope that you will find the ones that are best suited to you.&lt;/p&gt;
 </description>
     </item>
     
@@ -162,9 +464,11 @@ There is a large number of resources for each subject. I was overwhelmed and ove
       <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hangle.fr/post/hello-world/</guid>
-      <description>&lt;p&gt;Hello and welcome to my blog! Writing a blog is what I have wanted to do for a long time. However, I can only start this until now when I have fewer assignments in school.&lt;/p&gt;
+      <description>&lt;p&gt;Since I started learning Data Science, I have always wanted to start a blog on the topic. Unfortunately due to the large amount of work for my graduate study, this was not possible, until now.&lt;/p&gt;
 
-&lt;p&gt;Through this blog, I want to share my study experience as well as to talk about the projects that I implemented and what I have learned from them.&lt;/p&gt;
+&lt;p&gt;This blog has two main purposes. First, I want to gain a deeper understanding of what I have learned; I find that writing is one of the best ways to learn. Second, I would like to share not only my knowledge but also my experience to the people, like myself a few months ago, who would likely be struggling when entering the field due to the lack of suitable prior background.&lt;/p&gt;
+
+&lt;p&gt;Comments and feedback are very much appreciated.&lt;/p&gt;
 </description>
     </item>
     

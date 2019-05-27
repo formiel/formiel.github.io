@@ -12,30 +12,21 @@
     
     
     <item>
-      <title>Understanding and Implementing Skip-gram with Negative Sampling</title>
+      <title>Understanding Word Vectors and Implementing Skip-gram with Negative Sampling</title>
       <link>https://hangle.fr/post/word2vec/</link>
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hangle.fr/post/word2vec/</guid>
-      <description>An introduction to understand and implement skip-gram with negative sampling, one of the algorithms of Word2vec.</description>
+      <description>An introduction to understand word vectors (otherwise known as word embeddings) and to implement SGNS from scratch using Numpy.</description>
     </item>
     
     <item>
-      <title>A Guide to Data Science for Absolute Beginners</title>
+      <title>Best Data Science Resources for Absolute Beginners</title>
       <link>https://hangle.fr/post/ds-beginner/</link>
-      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hangle.fr/post/ds-beginner/</guid>
       <description>I share my experience in selecting the best resources to learn Data Science for an absolute beginner.</description>
-    </item>
-    
-    <item>
-      <title>Passing arguments to a Python program</title>
-      <link>https://hangle.fr/post/argparse/</link>
-      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hangle.fr/post/argparse/</guid>
-      <description>One of the&amp;hellip; Using the argparse package.</description>
     </item>
     
     <item>

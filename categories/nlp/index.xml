@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on Hang Le</title>
+    <link>https://hangle.fr/categories/nlp/</link>
+    <description>Recent content in NLP on Hang Le</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hangle.fr/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Understanding Word Vectors and Implementing Skip-gram with Negative Sampling</title>
+      <link>https://hangle.fr/post/word2vec/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/word2vec/</guid>
+      <description>An introduction to understand word vectors (otherwise known as word embeddings) and to implement SGNS from scratch using Numpy.</description>
+    </item>
+    
+  </channel>
+</rss>

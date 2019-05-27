@@ -257,7 +257,7 @@ Once we have computed the above derivatives, we can apply gradient descent updat
 &lt;code&gt;$\begin{align}
 \w_t &amp;amp;\gets \w_t - \alpha \frac{\partial{L_{(t,p)}}}{\partial {\w_t}},\label{eq:descent-wt}\\
 \c_p &amp;amp;\gets \c_p - \alpha \frac{\partial{L_{(t,p)}}}{\partial{\c_p}},\label{eq:descent-cp}\\
-\c_p &amp;amp;\gets \c_n - \alpha \frac{\partial{L_{(t,p)}}}{\partial{\c_n}},\label{eq:descent-cn}
+\c_n &amp;amp;\gets \c_n - \alpha \frac{\partial{L_{(t,p)}}}{\partial{\c_n}},\label{eq:descent-cn}
 \end{align}$&lt;/code&gt;
 where $\alpha$ is the step-size (which is another hyperparameter).&lt;/p&gt;
 

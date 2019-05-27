@@ -1,14 +1,181 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academic</title>
-    <link>/</link>
-    <description>Recent content on Academic</description>
+    <title>Hang Le</title>
+    <link>https://hangle.fr/</link>
+    <description>Recent content on Hang Le</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://hangle.fr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understanding and Implementing Skip-gram with Negative Sampling</title>
+      <link>https://hangle.fr/post/word2vec/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/word2vec/</guid>
+      <description>&lt;p&gt;Many modelling tasks require text data as inputs. However, we could not just pass words or sentences to models. Computers could not be able to understand the text and hence learn from them. Therefore, featurizing the text, i.e. converting characters into numerical values, to feed the models plays a crucial role in machine learning. So, how to represent words using numbers?&lt;/p&gt;
+
+&lt;p&gt;$\newcommand{\cN}{\mathcal{N}}$&lt;/p&gt;
+
+&lt;p&gt;$\cN$&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[a+b\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Let $V$ denote the total number of words in our vocabulary and $d$ denote the embedding dimension (which is a hyperparameter). The parameters of our model consist of two matrices: $\W\in\RR^{d\times V}$ and $\C\in\RR^{V\times d}$. For any word (index) $t$ let $\w_t,\c_t$ respectively denote the $t^\text{th}$ &lt;em&gt;column&lt;/em&gt; of $\W$ and the $t^\text{th}$ \textit{row} of $\C$. Our loss function over the whole training set can be expressed as:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+a + b + c + a + b + c + a + b + c + a + b + c + a + b + c + a + b + c + a + b + c + a + b + c +
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$\begin{align}
+L(\thetab) = &amp;amp;\sum_{(t,p) \in +} - \log \frac{1}{1 + \exp(-\w_t^\top \c_p)} \\\\ &amp;amp; + a \sum_{(t,n)}
+\end{align}$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$$\begin{equation}
+L(\thetab) = \sum_{(t,p) \in +} - \log \frac{1}{1 + \exp(-\w_t^\top \c_p)} + \sum_{(t,n) \in -} - \log \frac{1}{1 + \exp(\w_t^\top \c_n)},
+\end{equation}$$&lt;/code&gt;
+which can be understood as the negative log-likelihood of the data. The signs $+$ and $-$ respectively denote the set of positive and negative training instances.&lt;/p&gt;
+
+&lt;p&gt;The parameters of our model is $\thetab = (\W, \C)$ and our objective is to minimize $L$ with respect to $\W$ and $\C$. A common solution is to use stochastic gradient descent, where in each iteration we minimize a \textit{local} loss function with respect to a positive pair $(t,p)$:
+&lt;code&gt;$$\begin{equation}\label{eq:loss-tp}
+L_{(t,p)} = -\log \frac{1}{1 + \exp(-\w_t^\top \c_p)} + \sum_{n \in \cN(t,p)} - \log \frac{1}{1 + \exp(\w_t^\top \c_n)},
+\end{equation}$$&lt;/code&gt;
+where $\cN(t,p)$ denote the set of negative samples with respect to $t$, generated for the positive sample $p$ (for positive sample we generate $K$ negative samples).
+With simple calculus, we obtain the following partial derivatives:
+&lt;code&gt;$\begin{align}
+\pdv{L_{(t,p)}}{\w_t} &amp;amp;= - s_p\c_p + \sum_{n \in \cN(t,p)}  s_n\c_n, \\
+\pdv{L_{(t,p)}}{\c_p} &amp;amp;= - s_p\w_t, \\
+\pdv{L_{(t,p)}}{\c_n} &amp;amp;= s_n\w_t \quad\forall n \in \cN(t,p)
+\end{align}$&lt;/code&gt;
+where we have denoted
+\begin{equation}
+s_p = \frac{1}{1 + \exp(\w_t^\top \c_p)},\quad s_n = \frac{1}{1 + \exp(-\w_t^\top \c_n)}.
+\end{equation}
+Once we have computed the above derivatives, we can apply gradient descent updates as follows:
+&lt;code&gt;$\begin{align}
+\w_t &amp;amp;\gets \w_t - \alpha\pdv{L_{(t,p)}}{\w_t},\label{eq:descent-wt}\\
+\c_p &amp;amp;\gets \c_p - \alpha\pdv{L_{(t,p)}}{\c_p},\label{eq:descent-cp}\\
+\c_p &amp;amp;\gets \c_p - \alpha\pdv{L_{(t,p)}}{\c_p},\label{eq:descent-cn}
+\end{align}$&lt;/code&gt;
+where $\alpha$ is the step-size (which is another hyperparameter).&lt;/p&gt;
+
+&lt;p&gt;From \eqref{eq:loss-tp} we have&lt;/p&gt;
+
+&lt;h4 id=&#34;references&#34;&gt;References&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1301.3781&#34;&gt;Efficient estimation of word representations in vector space&lt;/a&gt;.
+Mikolov, Tomas, et al.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1310.4546&#34;&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt;.
+Mikolov, Tomas, et al.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~jurafsky/slp3/&#34;&gt;Speech and Language Processing&lt;/a&gt;.
+Dan Jurafsky and James H. Martin.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cs224d.stanford.edu/lecture_notes/notes1.pdf&#34;&gt;Lecture notes CS224D: Deep Learning for NLP.&lt;/a&gt;.
+Francois Chaubard, Rohit Mundra, Richard Socher.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cs.bgu.ac.il/~yoavg/publications/negative-sampling.pdf&#34;&gt;word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method&lt;/a&gt;.
+Yoav Goldberg and Omer Levy.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Guide to Data Science for Absolute Beginners</title>
+      <link>https://hangle.fr/post/ds-beginner/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/ds-beginner/</guid>
+      <description>
+
+&lt;p&gt;When I started studying data science, I had spent quite some time to find resources best fit to my background and my needs. The ones listed below have helped me tremendously in my study. I hope you will find some of them helpful in your learning as well.&lt;/p&gt;
+
+&lt;!-- I think that the first and most important thing is to equip myself with a solid foundation in the mathematics essential to the field i.e. Linear Algebra, Calculus and Statistics. I had these courses in my undergraduate but it has been years since my graduation, hence I want to follow comprehensive courses in these subjects, not just review the concepts. 
+
+There is a large number of resources for each subject. I was overwhelmed and over-excited at first. As a result, I kept studying and switching between multiple courses at the same time. However, I found out later that this was ineffective to me and slowing down my progress. I then followed thoroughly one book or course for each subject at a time before moving on to another.  --&gt;
+
+&lt;h2 id=&#34;1-linear-algebra&#34;&gt;1. Linear Algebra&lt;/h2&gt;
+
+&lt;!-- 
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;18-06s10.jpg&#34; /&gt;
+
+
+
+&lt;figcaption data-pre=&#34;Figure &#34; data-post=&#34;:&#34; &gt;
+  &lt;h4&gt;MIT 18.06 Linear Algebra by Professor Gilbert Strang&lt;/h4&gt;
+  
+&lt;/figcaption&gt;
+
+&lt;/figure&gt; --&gt;
+
+&lt;p&gt;I checked out one or two books borrowed from the school library and the Linear Algebra series in Khan Academy. However, I could only appreciate the beauty of matrices thanks to &lt;em&gt;MIT 18.06 Linear Algebra&lt;/em&gt; course of Professor Gilbert Strang. I would recommend you to watch the lectures and doing exercises in his book &lt;em&gt;Introduction to Linear Albera, 5th edition&lt;/em&gt; if you have time.&lt;/p&gt;
+
+&lt;!-- ## 2. Calculus --&gt;
+
+&lt;h2 id=&#34;2-probability-and-statistics&#34;&gt;2. Probability and Statistics&lt;/h2&gt;
+
+&lt;p&gt;The lecture notes of &lt;em&gt;MIT 18.05 Introduction to Probability and Statistics&lt;/em&gt; by Profs. Jeremy Orloff and Jonathan Bloom is an excellent study resource for a quick review of probability and statistics with clear and intuitive explanations.&lt;/p&gt;
+
+&lt;p&gt;In addition, I also followed the book &lt;em&gt;All of Statistics: A Concise Course in Statistical Inference&lt;/em&gt; by Larry A. Wasserman. The book provides a broad and as the name of the book indicated, &lt;em&gt;concise&lt;/em&gt; coverage of probability and statistics. It covers basic and modern concepts in probability and statistics that are closely related to machine learning.&lt;/p&gt;
+
+&lt;!-- The preface of the author has said this best. --&gt;
+
+&lt;!-- &gt; Students who analyze data, or who aspire to develop new methods for analyzing data, should be well grounded in basic probability and mathematical statistics. Using fancy tools like neural nets, boosting, and support vector machines without understanding basic statistics is like doing brain surgery before knowing how to use a band-aid.
+
+&gt; But where can students learn basic probability and statistics quickly? Nowhere. At least, that was my conclusion when my computer science colleagues kept asking me: “Where can I send my students to get a good understanding of modern statistics quickly?” The typical mathematical statistics course spends too much time on tedious and uninspiring topics (counting methods, two dimensional integrals, etc.) at the expense of covering modern concepts (bootstrapping, curve estimation, graphical models, etc.). --&gt;
+
+&lt;h2 id=&#34;3-optimization&#34;&gt;3. Optimization&lt;/h2&gt;
+
+&lt;p&gt;Optimization is of central importance to almost all machine learning algorithms. Having an adequate understanding of optimization frameworks is essential to any machine learning and data science practitioners. The book that I recommend is &lt;em&gt;Convex Optimization&lt;/em&gt; by Stephen Boyd and Lieven Vandenberghe. You can also follow the online courses instructed by Prof. Boyd via Stanford Lagunita or Youtube.&lt;/p&gt;
+
+&lt;h2 id=&#34;4-machine-learning&#34;&gt;4. Machine Learning&lt;/h2&gt;
+
+&lt;p&gt;The book &lt;em&gt;An Introduction to Statistical Learning with Applications in R&lt;/em&gt; by Daniela Witten, Gareth James, Robert Tibshirani, and Trevor Hastie is a very good read to any beginner.&lt;/p&gt;
+
+&lt;p&gt;Besides, following the &lt;em&gt;Machine Learning&lt;/em&gt; course of Professor Andrew Ng on Coursera has proved to be highly profitable to my learning. I love Prof. Andrew Ng&amp;rsquo;s teaching style where complicated concepts become crystal clear through his explanations. I found the practical assignments building algorithms from scratch in the course extremely useful to grasp the associated algorithms.&lt;/p&gt;
+
+&lt;p&gt;For an upper level, I would suggest two books, &lt;em&gt;Pattern Recognition and Machine Learning&lt;/em&gt; by Christopher M. Bishop and &lt;em&gt;The Elements of Statistical Learning&lt;/em&gt; by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie. These two books are considered to be the best textbooks of Machine Learning by many people.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, there is a large number of online resources and what works for some may not be found as useful by others. This is only recommendations based on my personal experience. I hope that you will find the ones that are best suited to you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Passing arguments to a Python program</title>
+      <link>https://hangle.fr/post/argparse/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/argparse/</guid>
+      <description>&lt;p&gt;One of the&amp;hellip; Using the &lt;code&gt;argparse&lt;/code&gt; package.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://hangle.fr/post/hello-world/</link>
+      <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/hello-world/</guid>
+      <description>&lt;p&gt;Hello and welcome to my blog! Writing a blog is what I have wanted to do for a long time. However, I can only start this until now when I have fewer assignments in school.&lt;/p&gt;
+
+&lt;p&gt;Through this blog, I want to share my study experience as well as to talk about the projects that I implemented and what I have learned from them.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://hangle.fr/about/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/about/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

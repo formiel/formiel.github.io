@@ -6,10 +6,30 @@
     <description>Recent content on Hang Le</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://hangle.fr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Solutions to the Assignments of Stanford CS224n NLP Class</title>
+      <link>https://hangle.fr/post/cs224n/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/cs224n/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://web.stanford.edu/class/cs224n/&#34; target=&#34;_blank&#34;&gt;Stanford CS224n: Natural Language Processing with Deep Learning&lt;/a&gt; has been an excellent course in NLP for the last few years. Recently its 2019 edition lecture videos have been made publicly available. Therefore, I decided to &amp;ldquo;attend&amp;rdquo; this course. My objective is to follow closely the proposed schedule: two lectures and one assignment per week. My schedule will then be as follows.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Assignment 1: Introduction to word vectors. &lt;em&gt;Due May 28th&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Assignment 2: Derivatives and implementation of word2vec algorithm. &lt;em&gt;Due June 4th&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Assignment 3: Dependency parsing and neural network foundations. &lt;em&gt;Due June 11th&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Assignment 4: Neural Machine Translation with sequence-to-sequence and attention. &lt;em&gt;Due June 18th&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Assignment 5: Neural Machine Translation with ConvNets and subword modeling. &lt;em&gt;Due June 25th&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The code will be updated regularly in &lt;a href=&#34;https://github.com/formiel/cs224n&#34; target=&#34;_blank&#34;&gt;this repo&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Understanding Word Vectors and Implementing Skip-gram with Negative Sampling</title>

@@ -27,10 +27,10 @@
   
     
   
-  <meta name="description" content="MSc in Data Sciences and Business Analytics">
+  <meta name="description" content="I am going to update in this post my solutions to the assignments of Stanford CS224n.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://hangle.fr/categories/">
+  <link rel="alternate" hreflang="en-us" href="https://hangle.fr/post/cs224n/">
 
   
 
@@ -110,15 +110,12 @@
   
 
   
-  <link rel="alternate" href="/categories/index.xml" type="application/rss+xml" title="Hang Le">
-  <link rel="feed" href="/categories/index.xml" type="application/rss+xml" title="Hang Le">
-  
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://hangle.fr/categories/">
+  <link rel="canonical" href="https://hangle.fr/post/cs224n/">
 
   
   
@@ -130,12 +127,14 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Hang Le">
-  <meta property="og:url" content="https://hangle.fr/categories/">
-  <meta property="og:title" content="Categories | Hang Le">
-  <meta property="og:description" content="MSc in Data Sciences and Business Analytics"><meta property="og:image" content="https://hangle.fr/img/icon-192.png">
+  <meta property="og:url" content="https://hangle.fr/post/cs224n/">
+  <meta property="og:title" content="My Solutions to the Assignments of Stanford CS224n NLP Class | Hang Le">
+  <meta property="og:description" content="I am going to update in this post my solutions to the assignments of Stanford CS224n."><meta property="og:image" content="https://hangle.fr/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-27T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-05-27T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-27T00:00:00&#43;00:00">
   
 
   
@@ -259,7 +258,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
-  <title>Categories | Hang Le</title>
+  <title>My Solutions to the Assignments of Stanford CS224n NLP Class | Hang Le</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -403,7 +402,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -419,43 +420,255 @@
   
 
   
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">My Solutions to the Assignments of Stanford CS224n NLP Class</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-05-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-05-27 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/hang/">Hang Le</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 27, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/nlp/">NLP</a>, <a href="/categories/learning/">learning</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p><a href="http://web.stanford.edu/class/cs224n/" target="_blank">Stanford CS224n: Natural Language Processing with Deep Learning</a> has been an excellent course in NLP for the last few years. Recently its 2019 edition lecture videos have been made publicly available. Therefore, I decided to &ldquo;attend&rdquo; this course. My objective is to follow closely the proposed schedule: two lectures and one assignment per week. My schedule will then be as follows.</p>
+
+<ul>
+<li>Assignment 1: Introduction to word vectors. <em>Due May 28th</em>.</li>
+<li>Assignment 2: Derivatives and implementation of word2vec algorithm. <em>Due June 4th</em>.</li>
+<li>Assignment 3: Dependency parsing and neural network foundations. <em>Due June 11th</em>.</li>
+<li>Assignment 4: Neural Machine Translation with sequence-to-sequence and attention. <em>Due June 18th</em>.</li>
+<li>Assignment 5: Neural Machine Translation with ConvNets and subword modeling. <em>Due June 25th</em>.</li>
+</ul>
+
+<p>The code will be updated regularly in <a href="https://github.com/formiel/cs224n" target="_blank">this repo</a>.</p>
+
+    </div>
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
   
   
     
   
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Categories</h1>
-
   
 
-  
-</div>
 
 
 
-<div class="universal-wrapper">
-  
 
   
-  
-  <div>
-    <h2><a href="/categories/nlp/">NLP</a></h2>
-    <div class="article-style">
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
       
+      <img class="portrait mr-3" src="/authors/hang/avatar_hu6c0027a0dd7d1717a82b09fb951f4732_320532_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/authors/hang/">Hang Le</a></h5>
+      <h6 class="card-subtitle">MSc in Data Sciences and Business Analytics</h6>
+      <p class="card-text" itemprop="description">My interests include machine learning, deep learning and natural language processing.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:phuonghang.le89@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/formiel" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/formiel" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-  
-  <div>
-    <h2><a href="/categories/learning/">learning</a></h2>
-    <div class="article-style">
+
+
+
       
-    </div>
+      
+    
+
+    
+
+    
+
+
   </div>
-  
+</article>
 
-  
-
-</div>
 <div class="container">
   <footer class="site-footer">
   

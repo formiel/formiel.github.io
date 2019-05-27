@@ -4,36 +4,47 @@
   
   <url>
     <loc>https://hangle.fr/authors/hang/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hangle.fr/authors/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hangle.fr/categories/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hangle.fr/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://hangle.fr/post/cs224n/</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hangle.fr/categories/nlp/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hangle.fr/post/</loc>
-    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/categories/learning/</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -44,12 +55,6 @@
   <url>
     <loc>https://hangle.fr/post/ds-beginner/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hangle.fr/categories/learning/</loc>
-    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -6,10 +6,19 @@
     <description>Recent content in NLP on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Solutions to the Assignments of Stanford CS224n NLP Class</title>
+      <link>https://hangle.fr/post/cs224n/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hangle.fr/post/cs224n/</guid>
+      <description>I am going to update in this post my solutions to the assignments of Stanford CS224n.</description>
+    </item>
     
     <item>
       <title>Understanding Word Vectors and Implementing Skip-gram with Negative Sampling</title>

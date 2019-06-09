@@ -41,7 +41,7 @@
 HAHAHUGOSHORTCODE-TOC0-HBHB
  --&gt;
 
-&lt;h2 id=&#34;1-introduction--how-to-represent-words&#34;&gt;1. Introduction - How to represent words&lt;/h2&gt;
+&lt;h2 id=&#34;1-introduction-how-to-represent-words&#34;&gt;1. Introduction: How to represent words&lt;/h2&gt;
 
 &lt;p&gt;Any machine learning model needs to be fed by data. Models learn and extract knowledge from data. Data could exist in various forms such as images, videos or text. However, no matter what type of data, they all have to be transformed into numerical values so that computers could understand and process them. For example, a grayscale image is seen by computers as a matrix of pixels, where each pixel is represented by an integer ranging from 0 to 255 depending on its intensity from black (0) to white (255). Color images, on the other hand, compose three values or channels for each pixel, in which each channel measures the intensity in one dimension of the color space (includes red, green and blue dimensions) and hence are perceived as 3D arrays of integers.&lt;/p&gt;
 
@@ -125,7 +125,7 @@ Dan Jurafsky and James H. Martin.)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;The models using count-based methods are generally based on a &lt;em&gt;co-occurrence matrix&lt;/em&gt; i.e. a matrix that counts how often words appear together.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;(1) Word-Document matrix&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&#34;1-worddocument-matrix&#34;&gt;(1) Word-Document matrix&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Each row $i$ represents a word in the dictionary and each column $j$ represents a document.&lt;/li&gt;
@@ -135,7 +135,7 @@ Dan Jurafsky and James H. Martin.)&lt;/em&gt;&lt;/p&gt;
 &lt;li&gt;The context chosen to define a word: &lt;em&gt;documents&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;(2) Window-based co-occurrence matrix&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&#34;2-windowbased-cooccurrence-matrix&#34;&gt;(2) Window-based co-occurrence matrix&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Each row $i$ represents a word and each column $j$ also represents a word in the dictionary.&lt;/li&gt;
@@ -145,7 +145,7 @@ Dan Jurafsky and James H. Martin.)&lt;/em&gt;&lt;/p&gt;
 &lt;li&gt;The context chosen to define a word: a window of $2m$ words (or less depending on the word&#39;s position) around the target word.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;(3) Term Frequency - Inverse Document Frequency (Tf-idf) weighted vectors&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&#34;3-term-frequency--inverse-document-frequency-tfidf-weighted-vectors&#34;&gt;(3) Term Frequency - Inverse Document Frequency (Tf-idf) weighted vectors&lt;/h5&gt;
 
 &lt;p&gt;The simple raw frequency in word-document and word-word matrices has some limitations in measuring the association between words when it comes to frequently used words like &lt;em&gt;the, a, an, it, they&lt;/em&gt; etc. The ubiquitous words do not carry discriminative information and therefore are deemed to be unimportant. Term frequency - inverse document frequency (tf-idf) is an algorithm used to adjust a word frequency based on the following two terms:&lt;/p&gt;
 
@@ -168,7 +168,7 @@ idf_t = \log_{10} \left(\frac{N}{df_t} \right)
 w_{t, d} = tf_{t, d} \times idf_t
 \end{equation*}$$&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;(4) Positive Pointwise Mutual Information (PPMI) weighted matrix&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&#34;4-positive-pointwise-mutual-information-ppmi-weighted-matrix&#34;&gt;(4) Positive Pointwise Mutual Information (PPMI) weighted matrix&lt;/h5&gt;
 
 &lt;p&gt;PPMI is an alternative weighting function to tf-idf. This method is based on PMI, a measure of association used in information theory. The intuition is that the association between 2 words $w$ and $c$ could be measured by how often these 2 words co-occur compared with the probability that they appear together purely by chance assuming they were independent. It is common to use positive values of PMI as negative ones is not intuitively interpretable.
 &lt;code&gt;$$\begin{equation*}
@@ -193,7 +193,7 @@ PPMI_{ij} = \text{max} \left (\log_2 \frac{p_{ij}}{p_{i*}p_{*j}}, 0 \right)
 
 &lt;p&gt;Instead of directly computing all co-occurrence word counts, iteration-based methods learn to encode the probability of a word given its context in one iteration at a time. The idea is to train a model with parameters are the word vectors themselves on some loss function. Iteratively, we update the parameters to reduce the loss and eventually learn our word representation vectors. Word2vec proposed by Mikolov et al. (2013) is an efficient method based on that principle to learn word embeddings. There are 2 algorithms presented in the Word2vec paper: continuous bag-of-words (CBOW) and skip-gram.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;(1) Continuous bag-of-words (CBOW)&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&#34;1-continuous-bagofwords-cbow&#34;&gt;(1) Continuous bag-of-words (CBOW)&lt;/h5&gt;
 
 &lt;p&gt;CBOW tries to predict a center word from its surrounding context. Let $w_i$ denotes the word $i$ from vocabulary. The parameters of our model consist of two matrices $\V \in \RR^{n \times V}$ and $\U \in \RR^{V \times n}$. $v_i$ is the $i$-th column of $\V$, the input vector of word $w_i$. $u_i$ is the $i$-th row of $\U$, the output vector of word $w_i$.&lt;/p&gt;
 
@@ -211,7 +211,7 @@ PPMI_{ij} = \text{max} \left (\log_2 \frac{p_{ij}}{p_{i*}p_{*j}}, 0 \right)
 
 &lt;p&gt;We compute the derivatives of the loss function $J$ with respect to the parameters and update the parameters $\U, \V$ iteratively to eventually obtain the parameters, which are the word vectors themselves.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;(2) Skip-gram&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&#34;2-skipgram&#34;&gt;(2) Skip-gram&lt;/h5&gt;
 
 &lt;p&gt;Opposite to CBOW, skip-gram tries to predict context words from a center word. Using similar notations to CBOW and based on the same principle, the objective function using skip-gram for one word is then formulated as follow:
 &lt;code&gt;$$\begin{align*}
@@ -224,33 +224,60 @@ PPMI_{ij} = \text{max} \left (\log_2 \frac{p_{ij}}{p_{i*}p_{*j}}, 0 \right)
 
 &lt;p&gt;Similar to CBOW, we update the parameters using stochastic gradient descent to obtain the word vectors.&lt;/p&gt;
 
-&lt;h2 id=&#34;4-my-implementation-of-skipgram-with-negative-sampling-sgns&#34;&gt;4. My implementation of Skip-gram with Negative Sampling (SGNS)&lt;/h2&gt;
+&lt;h2 id=&#34;4-my-implementation-of-skipgram-with-negative-sampling-sgns&#34;&gt;4. My Implementation of Skip-gram with Negative Sampling (SGNS)&lt;/h2&gt;
 
-&lt;p&gt;The authors of Word2vec proposed negative sampling, a method to speed up the training process and improve the model performance in the paper &lt;em&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/em&gt; (Tomas Mikolov et al.). Now, let me walk through the implementation of skip-gram with negative sampling where I take the derivatives and build the algorithms on my own from scratch using Numpy. You could refer to my code in the following &lt;a href=&#34;https://github.com/formiel/word2vec&#34;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The authors of Word2vec proposed negative sampling, a method to speed up the training process and improve the model performance in the paper &lt;em&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/em&gt; (Tomas Mikolov et al.). Now, let me walk through the implementation of skip-gram with negative sampling where I take the derivatives and build the algorithms on my own from scratch using Numpy. You could refer to my code for further details in the following &lt;a href=&#34;https://github.com/formiel/word2vec&#34;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;A main idea in negative sampling is that instead of looping over the entire vocabulary to compute the loss function, we could just take several negative examples from a noise distribution whose probabilities match the word frequency. We will use sigmoid function instead of softmax and the loss function to optimize is also changed. I will describe in details in the later part.&lt;/p&gt;
+&lt;p&gt;A main idea in negative sampling is that instead of looping over the entire vocabulary to compute the loss function, we could just take several &lt;em&gt;negative examples&lt;/em&gt; from a noise distribution whose probabilities match the word frequency. We will use &lt;em&gt;sigmoid&lt;/em&gt; function instead of &lt;em&gt;softmax&lt;/em&gt;. The loss function to optimize is also changed. I will describe in more details the implementation steps, the loss function, the optimization process, the crucial part of the training loop and how my model performs in the next sections.&lt;/p&gt;
 
-&lt;p&gt;Below is the steps on how to implement SGNS:&lt;/p&gt;
+&lt;h5 id=&#34;1-implementation-steps&#34;&gt;(1) Implementation steps&lt;/h5&gt;
+
+&lt;p&gt;Below is the steps on how to implement SGNS. This is based on Chapter 6: Vector Semantics in the book &lt;a href=&#34;https://web.stanford.edu/~jurafsky/slp3/&#34;&gt;Speech and Language Processing&lt;/a&gt; by Dan Jurafsky and James H. Martin.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Obtain positive examples from the neigboring context of a target word&lt;/li&gt;
-&lt;li&gt;Obtain negative examples by randomly sampling words in the lexicon based on a unigram distribution&lt;/li&gt;
-&lt;li&gt;Train the model by optimizing the loss function&lt;/li&gt;
-&lt;li&gt;Use the regression weights as the embedding vectors&lt;/li&gt;
+&lt;li&gt;Obtain &lt;em&gt;positive examples&lt;/em&gt; from the neigboring &lt;em&gt;context&lt;/em&gt; of a target word&lt;/li&gt;
+&lt;li&gt;Obtain &lt;em&gt;negative examples&lt;/em&gt; by &lt;em&gt;randomly sampling&lt;/em&gt; words in the lexicon based on a unigram distribution (which is built using words frequency)&lt;/li&gt;
+&lt;li&gt;Train the model by &lt;em&gt;optimizing the loss&lt;/em&gt; function&lt;/li&gt;
+&lt;li&gt;Use the &lt;em&gt;regression weights&lt;/em&gt; as the &lt;em&gt;embedding vectors&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h5 id=&#34;2-loss-function&#34;&gt;(2) Loss function&lt;/h5&gt;
 
 &lt;p&gt;Let $V$ denote the total number of words in our vocabulary and $d$ denote the embedding dimension (which is a hyperparameter). The parameters of the model consist of two matrices: $\W\in\RR^{d\times V}$ and $\C\in\RR^{V\times d}$. For any word (index) $t$ let $\w_t,\c_t$ respectively denote the $t^\text{th}$ &lt;em&gt;column&lt;/em&gt; of $\W$ and the $t^\text{th}$ &lt;em&gt;row&lt;/em&gt; of $\C$. The loss function over the whole training set can be expressed as:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;$$\begin{equation}
 L(\thetab) = \sum_{(t,p) \in +} - \log \frac{1}{1 + \exp(-\w_t^\top \c_p)} + \sum_{(t,n) \in -} - \log \frac{1}{1 + \exp(\w_t^\top \c_n)},
+\label{eq:loss}
 \end{equation}$$&lt;/code&gt;
 which can be understood as the negative log-likelihood of the data. The signs $+$ and $-$ respectively denote the set of positive and negative training instances.&lt;/p&gt;
 
-&lt;p&gt;The parameters of the model is $\thetab = (\W, \C)$ and the objective is to minimize $L$ with respect to $\W$ and $\C$. A common solution is to use stochastic gradient descent, where in each iteration I minimize a &lt;em&gt;local&lt;/em&gt; loss function with respect to a positive pair $(t,p)$:
+&lt;p&gt;Let me devote some time to explain a little bit how to derive the loss function in \eqref{eq:loss}. $t$, $c$, $p$, $n$ are used to denote a target word, a word in the target word&#39;s context, a positive sample (word belongs to the context) and a negative sample (word do not belong to the context) respectively.&lt;/p&gt;
+
+&lt;p&gt;Recall that similarity score between two vectors could be measured using the dot product between these two vectors. The higher this dot product score is, the more similar or closer the two vectors are together. This score could be turned into probability using the &lt;em&gt;logistic&lt;/em&gt; or &lt;em&gt;sigmoid&lt;/em&gt; function $\sigma(x)$ where $\sigma(x) = \frac{1}{1 + exp(-x)}$. For example, the probability between similarity of 2 words $t$ and $c$ is computed as $\frac{1}{1 + exp(-\w_t^\top\w_c)}$, where $\w_t$ and $\w_c$ denote the vectors for word $t$ and word $c$ respectively. The higher this probability is, the more probable that word $t$ is similar to word $c$.&lt;/p&gt;
+
+&lt;p&gt;The goal of our learning algorithm is to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(1) Maximize the &lt;em&gt;similarity&lt;/em&gt; between a target word $t$ and positive words $p$ from the real context of $t$, i.e. maximize $P(+ | t,p)$.&lt;/li&gt;
+&lt;li&gt;(2) Minimize the &lt;em&gt;similarity&lt;/em&gt; between a target word $t$ and negative words $n$ drawn by random sampling from a pool of negative samples, i.e. minimize $P(- | t,n)$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These two goals correspond to the two summands in \eqref{eq:loss} respectively. More specifically:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For pairs in the positive set $(t, p) \in +$: instead of maximizing $P(+|t,p)$, we minimize $-\log P(+|t,p)$, i.e. minimize $- \log \frac{1}{1 + \exp(-\w_t^\top \c_p)}$.&lt;/li&gt;
+&lt;li&gt;For pairs in the negative set $(t, n) \in -$: minimizing $P(-|t,n)$ is equivalent to maximizing $1 - P(-|t,n) = 1 - \frac{1}{1+\exp(-\w_t^\top \c_n)} = \frac{1}{1 + \exp(\w_t^\top \c_n)}$. Thus instead of minimizing $P(-|t,n)$, we minimize $-\log \frac{1}{1 + \exp(\w_t^\top \c_n)}$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One strong and important assumption of skip-gram is that all context words are &lt;em&gt;independent&lt;/em&gt;, thus allowing us to multiply the probabilities of pairs of words. We then convert the multiplication to addition by taking the logarithmic values as above. Therefore, we have the two summands for all pairs in the positive set and all pairs the negative set as in \eqref{eq:loss}.&lt;/p&gt;
+
+&lt;h5 id=&#34;3-optimization-process&#34;&gt;(3) Optimization process&lt;/h5&gt;
+
+&lt;p&gt;The parameters of the model is $\thetab = (\W, \C)$ and the objective is to minimize $L$ with respect to $\W$ and $\C$. A common solution is to use stochastic gradient descent, where in each iteration we would minimize a &lt;em&gt;local&lt;/em&gt; loss function with respect to a positive pair $(t,p)$:
 &lt;code&gt;$$\begin{equation}\label{eq:loss-tp}
 L_{(t,p)} = -\log \frac{1}{1 + \exp(-\w_t^\top \c_p)} + \sum_{n \in \cN(t,p)} - \log \frac{1}{1 + \exp(\w_t^\top \c_n)},
 \end{equation}$$&lt;/code&gt;
-where $\cN(t,p)$ denote the set of negative samples with respect to $t$, generated for the positive sample $p$ (for one positive sample I generate $K$ negative samples). With simple calculus, I obtain the following partial derivatives:
+where $\cN(t,p)$ denotes the set of negative samples with respect to $t$, generated for the positive sample $p$ (for one positive sample, $K$ negative samples are generated). With simple calculus, I obtain the following partial derivatives:
 &lt;code&gt;$$\begin{align}
 \frac{\partial{L_{(t,p)}}}{\partial {\w_t}} &amp;amp;= - s_p\c_p + \sum_{n \in \cN(t,p)}  s_n\c_n, \\
 \frac{\partial{L_{(t,p)}}}{\partial{\c_p}} &amp;amp;= - s_p\w_t, \\
@@ -267,6 +294,8 @@ Once we have computed the above derivatives, we can apply gradient descent updat
 \c_n &amp;amp;\gets \c_n - \alpha \frac{\partial{L_{(t,p)}}}{\partial{\c_n}},\label{eq:descent-cn}
 \end{align}$&lt;/code&gt;
 where $\alpha$ is the step-size (which is another hyperparameter).&lt;/p&gt;
+
+&lt;h5 id=&#34;4-implementation-of-training-loop&#34;&gt;(4) Implementation of training loop&lt;/h5&gt;
 
 &lt;p&gt;An epoch of the training loop can be sketched as follows:&lt;/p&gt;
 
@@ -326,21 +355,23 @@ loss_epoch += loss
 
 &lt;p&gt;I obtained the word vectors from the parameters of the matrix $\W$. We could also get the word embeddings by taking average of the two matrices $\W$ and $\C$ or by concatenating them.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Model performance:&lt;/strong&gt; My SGNS model has been trained on the Billion Word Corpus and achieved a correlation of 0.9 with the human-annotated word similarity SimLex-999, a standard resource for the evaluation of word representation learning models.&lt;/p&gt;
+&lt;h5 id=&#34;5-model-performance&#34;&gt;(5) Model performance&lt;/h5&gt;
 
-&lt;h4 id=&#34;references&#34;&gt;References&lt;/h4&gt;
+&lt;p&gt;My SGNS model has been trained on the Billion Word Corpus and achieved a correlation of 0.9 with the human-annotated word similarity SimLex-999, a standard resource for the evaluation of word representation learning models.&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1301.3781&#34;&gt;Efficient estimation of word representations in vector space&lt;/a&gt;.
 Mikolov, Tomas, et al.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1310.4546&#34;&gt;Distributed Representations of Words and Phrases and their Compositionality&lt;/a&gt;.
 Mikolov, Tomas, et al.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~jurafsky/slp3/&#34;&gt;Speech and Language Processing&lt;/a&gt;.
+&lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/~jurafsky/slp3/&#34;&gt;Speech and Language Processing, (3rd ed. draft)&lt;/a&gt;.
 Dan Jurafsky and James H. Martin.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://cs224d.stanford.edu/lecture_notes/notes1.pdf&#34;&gt;Lecture notes CS224N: Deep Learning for NLP.&lt;/a&gt;.
-Francois Chaubard, Rohit Mundra, Richard Socher.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cs.bgu.ac.il/~yoavg/publications/negative-sampling.pdf&#34;&gt;word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method&lt;/a&gt;.
-Yoav Goldberg and Omer Levy.&lt;/li&gt;
+Francois Chaubard, Rohit Mundra, Richard Socher.
+&lt;!-- 5. [word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method] (https://www.cs.bgu.ac.il/~yoavg/publications/negative-sampling.pdf).
+Yoav Goldberg and Omer Levy. --&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>

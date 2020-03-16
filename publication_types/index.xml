@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publication_types on Hang Le</title>
@@ -6,9 +6,19 @@
     <description>Recent content in Publication_types on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 12 Dec 2019 23:06:51 +0100</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/publication_types/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1</title>
+      <link>https://hangle.fr/publication_types/1/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/publication_types/1/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Hang Le</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Authors on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 23:06:51 +0100</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/authors/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,101 @@
     <item>
       <title></title>
       <link>https://hangle.fr/authors/hang/</link>
-      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/authors/hang/</guid>
-      <description>Welcome to my blog! My name is Hang. I am from Vietnam. I am currently a MSc student in Data Sciences and Business Analytics at CentraleSupélec &amp;amp; ESSEC Business School.</description>
+      <description>Welcome to my blog!
+I am currently a PhD Candidate in Speech and Language Processing at the GETALP team of Laboratoire d&amp;rsquo;Informatique de Grenoble (LIG), a joint research team between Université Grenoble Alpes and CNRS. Prior to that, I obtained my MSc in Data Sciences and Business Analytics at CentraleSupélec &amp;amp; ESSEC. I work on Speech and Language Processing.</description>
+    </item>
+    
+    <item>
+      <title>Alexandre Allauzen</title>
+      <link>https://hangle.fr/authors/alexandre-allauzen/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/alexandre-allauzen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Benjamin Lecouteux</title>
+      <link>https://hangle.fr/authors/benjamin-lecouteux/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/benjamin-lecouteux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Benoît Crabbé</title>
+      <link>https://hangle.fr/authors/beno%C3%AEt-crabb%C3%A9/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/beno%C3%AEt-crabb%C3%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Didier Schwab</title>
+      <link>https://hangle.fr/authors/didier-schwab/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/didier-schwab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hang Le</title>
+      <link>https://hangle.fr/authors/hang-le/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/hang-le/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jibril Frej</title>
+      <link>https://hangle.fr/authors/jibril-frej/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/jibril-frej/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laurent Besacier</title>
+      <link>https://hangle.fr/authors/laurent-besacier/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/laurent-besacier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loïc Vial</title>
+      <link>https://hangle.fr/authors/lo%C3%AFc-vial/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/lo%C3%AFc-vial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximin Coavoux</title>
+      <link>https://hangle.fr/authors/maximin-coavoux/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/maximin-coavoux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vincent Segonne</title>
+      <link>https://hangle.fr/authors/vincent-segonne/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/vincent-segonne/</guid>
+      <description></description>
     </item>
     
     <item>

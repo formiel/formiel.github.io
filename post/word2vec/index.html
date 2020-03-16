@@ -91,7 +91,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.9e398b7a64ee2c82769da9724cdbf0cc.css">
+  <link rel="stylesheet" href="/css/academic.min.1c0f29ea38918554f71bc71c8b0b938a.css">
 
   
     
@@ -829,30 +829,27 @@ where $\alpha$ is the step-size (which is another hyperparameter).</p>
 </ul>
 
 <p>Below is the Python code of the inner loop. In the code, I used the variable <code>$s_{neg}$</code> to denote a vector of all $s_n$, i.e. <code>$\set{s_n}_{n \in \cN(t,p)}$</code>. For further detail please refer to the Github code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># context vector of the postive sample and the negative ones</span>
+cp <span style="color:#f92672">=</span> C[p, :]
+C_neg <span style="color:#f92672">=</span> C[negative_samples, :]
 
-<pre><code class="language-python"># context vector of the postive sample and the negative ones
-cp = C[p, :]
-C_neg = C[negative_samples, :]
+<span style="color:#75715e"># intermediate values that are helpful</span>
+sp <span style="color:#f92672">=</span> sigmoid(<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>dot(cp, wt))
+s_neg <span style="color:#f92672">=</span> sigmoid(np<span style="color:#f92672">.</span>dot(C_neg, wt))
 
-# intermediate values that are helpful
-sp = sigmoid(-np.dot(cp, wt))
-s_neg = sigmoid(np.dot(C_neg, wt))
+<span style="color:#75715e"># Compute partial derivatives</span>
+dwt <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>sp<span style="color:#f92672">*</span>cp <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>dot(s_neg, C_neg)
+dcp <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>sp<span style="color:#f92672">*</span>wt
+dC_neg <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>outer(s_neg, wt)
 
-# Compute partial derivatives
-dwt = -sp*cp + np.dot(s_neg, C_neg)
-dcp = -sp*wt
-dC_neg = np.outer(s_neg, wt)
+<span style="color:#75715e"># Gradient descent updates</span>
+wt <span style="color:#f92672">-=</span> stepsize<span style="color:#f92672">*</span>dwt
+cp <span style="color:#f92672">-=</span> stepsize<span style="color:#f92672">*</span>dcp
+C_neg <span style="color:#f92672">-=</span> stepsize<span style="color:#f92672">*</span>dC_neg
 
-# Gradient descent updates
-wt -= stepsize*dwt
-cp -= stepsize*dcp
-C_neg -= stepsize*dC_neg
-
-loss = -np.log(sigmoid(np.dot(cp, wt))) \
-      + np.sum(-np.log(sigmoid(-np.dot(C_neg, wt))))
-loss_epoch += loss
-</code></pre>
-
+loss <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>log(sigmoid(np<span style="color:#f92672">.</span>dot(cp, wt))) \
+      <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>sum(<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>log(sigmoid(<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>dot(C_neg, wt))))
+loss_epoch <span style="color:#f92672">+=</span> loss</code></pre></div>
 <p>Another possible implementation can consist of only one loop:</p>
 
 <ul>
@@ -923,7 +920,7 @@ Yoav Goldberg and Omer Levy. --></li>
 
     <div class="media-body">
       <h5 class="card-title" itemprop="name"><a href="/authors/hang/">Hang Le</a></h5>
-      <h6 class="card-subtitle">MSc in Data Sciences and Business Analytics</h6>
+      <h6 class="card-subtitle">PhD Candidate in Speech and Language Processing</h6>
       <p class="card-text" itemprop="description">My interests include machine learning, deep learning and natural language processing.</p>
       <ul class="network-icon" aria-hidden="true">
         
@@ -956,6 +953,21 @@ Yoav Goldberg and Omer Levy. --></li>
           <li>
             <a itemprop="sameAs" href="https://twitter.com/formiel" target="_blank" rel="noopener">
               <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=R4kaiOsAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
             </a>
           </li>
         
@@ -1141,7 +1153,7 @@ Yoav Goldberg and Omer Levy. --></li>
     
     
     
-    <script src="/js/academic.min.a0e6d4e1d60ac593306c9240b81c9290.js"></script>
+    <script src="/js/academic.min.e3409a134300bd0608d1e90bb8d9c541.js"></script>
 
   </body>
 </html>

@@ -1,28 +1,125 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://hangle.fr/authors/hang/</loc>
-    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/publication_types/1/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/alexandre-allauzen/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://hangle.fr/authors/</loc>
-    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/benjamin-lecouteux/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/beno%C3%AEt-crabb%C3%A9/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/bert/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/didier-schwab/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/publication/flaubert/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/hang-le/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/jibril-frej/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/laurent-besacier/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/lo%C3%AFc-vial/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/maximin-coavoux/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/nlp/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/publication_types/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/publication/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/unsupervised/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/authors/vincent-segonne/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/publication/lig-iwslt19/</loc>
+    <lastmod>2019-11-07T23:30:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/translation/</loc>
+    <lastmod>2019-11-07T23:30:19+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://hangle.fr/categories/</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hangle.fr/</loc>
+    <loc>https://hangle.fr/categories/learning/</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -33,18 +130,11 @@
   <url>
     <loc>https://hangle.fr/categories/nlp/</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hangle.fr/post/</loc>
     <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hangle.fr/categories/learning/</loc>
-    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -68,25 +158,16 @@
   </url>
   
   <url>
+    <loc>https://hangle.fr/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hangle.fr/authors/admin/</loc>
   </url>
   
   <url>
-    <loc>https://hangle.fr/publication_types/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hangle.fr/publication/</loc>
-  </url>
-  
-  <url>
     <loc>https://hangle.fr/talk/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hangle.fr/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

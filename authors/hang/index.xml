@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hang Le</title>
@@ -6,7 +6,7 @@
     <description>Recent content on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 23:06:51 +0100</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/authors/hang/index.xml" rel="self" type="application/rss+xml" />
     
@@ -45,15 +45,6 @@
       
       <guid>https://hangle.fr/post/hello-world/</guid>
       <description>About this blog</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hangle.fr/authors/hang/</link>
-      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hangle.fr/authors/hang/</guid>
-      <description>Welcome to my blog! My name is Hang. I am from Vietnam. I am currently a MSc student in Data Sciences and Business Analytics at CentraleSupélec &amp;amp; ESSEC Business School.</description>
     </item>
     
   </channel>

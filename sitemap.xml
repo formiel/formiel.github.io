@@ -13,12 +13,12 @@
   </url>
   
   <url>
-    <loc>https://hangle.fr/authors/</loc>
+    <loc>https://hangle.fr/tags/asr/</loc>
     <lastmod>2020-07-01T23:06:51+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hangle.fr/tags/bert/</loc>
+    <loc>https://hangle.fr/authors/</loc>
     <lastmod>2020-07-01T23:06:51+01:00</lastmod>
   </url>
   
@@ -29,6 +29,11 @@
   
   <url>
     <loc>https://hangle.fr/authors/didier-schwab/</loc>
+    <lastmod>2020-07-01T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/dual-decoder/</loc>
     <lastmod>2020-07-01T23:06:51+01:00</lastmod>
   </url>
   
@@ -58,7 +63,7 @@
   </url>
   
   <url>
-    <loc>https://hangle.fr/tags/nlp/</loc>
+    <loc>https://hangle.fr/tags/multilingual/</loc>
     <lastmod>2020-07-01T23:06:51+01:00</lastmod>
   </url>
   
@@ -73,12 +78,17 @@
   </url>
   
   <url>
+    <loc>https://hangle.fr/tags/speech-translation/</loc>
+    <lastmod>2020-07-01T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hangle.fr/tags/</loc>
     <lastmod>2020-07-01T23:06:51+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hangle.fr/tags/unsupervised/</loc>
+    <loc>https://hangle.fr/tags/transformer/</loc>
     <lastmod>2020-07-01T23:06:51+01:00</lastmod>
   </url>
   
@@ -94,6 +104,11 @@
   
   <url>
     <loc>https://hangle.fr/authors/beno%C3%AEt-crabb%C3%A9/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/bert/</loc>
     <lastmod>2019-12-12T23:06:51+01:00</lastmod>
   </url>
   
@@ -119,6 +134,16 @@
   
   <url>
     <loc>https://hangle.fr/authors/maximin-coavoux/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/nlp/</loc>
+    <lastmod>2019-12-12T23:06:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hangle.fr/tags/unsupervised/</loc>
     <lastmod>2019-12-12T23:06:51+01:00</lastmod>
   </url>
   

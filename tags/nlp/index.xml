@@ -6,19 +6,10 @@
     <description>Recent content in NLP on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2020 23:06:51 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 23:06:51 +0100</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation</title>
-      <link>https://hangle.fr/publication/dual_decoder/</link>
-      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
-      
-      <guid>https://hangle.fr/publication/dual_decoder/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>FlauBERT: des modèles de langue contextualisés pré-entraînés pour le français</title>

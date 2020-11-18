@@ -12,9 +12,54 @@
     
     
     <item>
+      <title>ASR</title>
+      <link>https://hangle.fr/tags/asr/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/tags/asr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dual decoder</title>
+      <link>https://hangle.fr/tags/dual-decoder/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/tags/dual-decoder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multilingual</title>
+      <link>https://hangle.fr/tags/multilingual/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/tags/multilingual/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>speech translation</title>
+      <link>https://hangle.fr/tags/speech-translation/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/tags/speech-translation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transformer</title>
+      <link>https://hangle.fr/tags/transformer/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/tags/transformer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>BERT</title>
       <link>https://hangle.fr/tags/bert/</link>
-      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/tags/bert/</guid>
       <description></description>
@@ -23,7 +68,7 @@
     <item>
       <title>NLP</title>
       <link>https://hangle.fr/tags/nlp/</link>
-      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/tags/nlp/</guid>
       <description></description>
@@ -32,7 +77,7 @@
     <item>
       <title>unsupervised</title>
       <link>https://hangle.fr/tags/unsupervised/</link>
-      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/tags/unsupervised/</guid>
       <description></description>

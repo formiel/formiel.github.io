@@ -6,7 +6,7 @@
     <description>Recent content in Authors on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Dec 2019 23:06:51 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 23:06:51 +0100</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/authors/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,65 @@
     <item>
       <title></title>
       <link>https://hangle.fr/authors/hang/</link>
-      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/authors/hang/</guid>
       <description>Welcome to my blog!
-I am currently a PhD Candidate in Speech and Language Processing at the GETALP team of Laboratoire d&amp;rsquo;Informatique de Grenoble (LIG), a joint research team between Université Grenoble Alpes and CNRS. Prior to that, I obtained my MSc in Data Sciences and Business Analytics at CentraleSupélec &amp;amp; ESSEC. I work on Speech and Language Processing.</description>
+I am currently a PhD Candidate in Speech and Language Processing at the GETALP team of Laboratoire d&amp;rsquo;Informatique de Grenoble (LIG), a joint research team between Université Grenoble Alpes and CNRS. Prior to that, I obtained my MSc in Data Sciences and Business Analytics at CentraleSupélec &amp;amp; ESSEC. I work on multilingual and low-resource speech translation.</description>
+    </item>
+    
+    <item>
+      <title>Changhan Wang</title>
+      <link>https://hangle.fr/authors/changhan-wang/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/changhan-wang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Didier Schwab</title>
+      <link>https://hangle.fr/authors/didier-schwab/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/didier-schwab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hang Le</title>
+      <link>https://hangle.fr/authors/hang-le/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/hang-le/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jiatao Gu</title>
+      <link>https://hangle.fr/authors/jiatao-gu/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/jiatao-gu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Juan Pino</title>
+      <link>https://hangle.fr/authors/juan-pino/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/juan-pino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laurent Besacier</title>
+      <link>https://hangle.fr/authors/laurent-besacier/</link>
+      <pubDate>Wed, 01 Jul 2020 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/authors/laurent-besacier/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -49,38 +103,11 @@ I am currently a PhD Candidate in Speech and Language Processing at the GETALP t
     </item>
     
     <item>
-      <title>Didier Schwab</title>
-      <link>https://hangle.fr/authors/didier-schwab/</link>
-      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
-      
-      <guid>https://hangle.fr/authors/didier-schwab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hang Le</title>
-      <link>https://hangle.fr/authors/hang-le/</link>
-      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
-      
-      <guid>https://hangle.fr/authors/hang-le/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Jibril Frej</title>
       <link>https://hangle.fr/authors/jibril-frej/</link>
       <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/authors/jibril-frej/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Laurent Besacier</title>
-      <link>https://hangle.fr/authors/laurent-besacier/</link>
-      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
-      
-      <guid>https://hangle.fr/authors/laurent-besacier/</guid>
       <description></description>
     </item>
     

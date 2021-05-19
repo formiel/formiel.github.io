@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Self-Supervised Representation Learning on Hang Le</title>
+    <link>https://hangle.fr/tags/self-supervised-representation-learning/</link>
+    <description>Recent content in Self-Supervised Representation Learning on Hang Le</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Apr 2021 23:06:51 +0100</lastBuildDate>
+    
+	<atom:link href="https://hangle.fr/tags/self-supervised-representation-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeBenchmark: A Reproducible Framework for Assessing Self-Supervised Representation Learning from Speech</title>
+      <link>https://hangle.fr/publication/lebenchmark/</link>
+      <pubDate>Wed, 21 Apr 2021 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/publication/lebenchmark/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

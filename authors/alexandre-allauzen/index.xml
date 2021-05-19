@@ -6,10 +6,28 @@
     <description>Recent content in Alexandre Allauzen on Hang Le</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Dec 2019 23:06:51 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 21 Apr 2021 23:06:51 +0100</lastBuildDate>
     
 	<atom:link href="https://hangle.fr/authors/alexandre-allauzen/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LeBenchmark: A Reproducible Framework for Assessing Self-Supervised Representation Learning from Speech</title>
+      <link>https://hangle.fr/publication/lebenchmark/</link>
+      <pubDate>Wed, 21 Apr 2021 23:06:51 +0100</pubDate>
+      
+      <guid>https://hangle.fr/publication/lebenchmark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FlauBERT: Unsupervised Language Model Pre-training for French</title>
+      <link>https://hangle.fr/publication/flaubert/</link>
+      <pubDate>Thu, 12 Dec 2019 23:06:59 +0100</pubDate>
+      
+      <guid>https://hangle.fr/publication/flaubert/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>FlauBERT: des modèles de langue contextualisés pré-entraînés pour le français</title>
@@ -17,15 +35,6 @@
       <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
       
       <guid>https://hangle.fr/publication/flaubert_taln/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>FlauBERT: Unsupervised Language Model Pre-training for French</title>
-      <link>https://hangle.fr/publication/flaubert/</link>
-      <pubDate>Thu, 12 Dec 2019 23:06:51 +0100</pubDate>
-      
-      <guid>https://hangle.fr/publication/flaubert/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,19 @@
+[
+  {
+    "listing": "/publications/index.html",
+    "items": [
+      "/publications/ctc-optimal-transport/index.html",
+      "/publications/task-agnostic-and-specific/index.html",
+      "/publications/adapter/index.html",
+      "/publications/dual-decoder-transformer/index.html",
+      "/publications/flaubert/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/post-with-code/index.html",
+      "/posts/welcome/index.html"
+    ]
+  }
+]

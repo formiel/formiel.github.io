@@ -6,8 +6,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Hang Le">
+<meta name="author" content="Juan Pino">
+<meta name="author" content="Changhan Wang">
+<meta name="author" content="Jiatao Gu">
+<meta name="author" content="Didier Schwab">
+<meta name="author" content="Laurent Besacier">
+<meta name="dcterms.date" content="2020-01-01">
 
-<title>Phuong-Hang Le</title>
+<title>Phuong-Hang Le - Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +27,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,17 +103,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Phuong-Hang Le</span>
     </a>
   </div>
@@ -82,11 +124,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications/index.html" rel="" target="">
+    <a class="nav-link" href="../../publications/index.html" rel="" target="">
  <span class="menu-text">Publications</span></a>
   </li>  
 </ul>
@@ -121,67 +163,120 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-
-
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="profile.jpg" class="about-image
-  round " style="height: 14em; width: 14em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Phuong-Hang Le</h1>
+<h1 class="title">Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation</h1>
+<p class="subtitle lead">International Conference on Computational Linguistics (COLING), 2020<br> <strong>Oral presentation</strong> <br><br> <a href="https://aclanthology.org/2020.coling-main.314.pdf"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a> &nbsp; <a href="https://github.com/formiel/speech-translation"><i class="bi bi-github"></i> Code</a> &nbsp; <a href="dd-short.pdf"><i class="bi bi-file-slides-fill"></i> Short slides</a> &nbsp; <a href="https://assets.underline.io/lecture/6348/slideshow/ac97052984666fa7d943a2f73ad5ab6e.pdf"><i class="bi bi-file-slides-fill"></i> Slides</a> &nbsp; <a href="https://underline.io/lecture/6348-dual-decoder-transformer-for-joint-automatic-speech-recognition-and-multilingual-speech-translation"><i class="bi bi-file-play-fill"></i> Video</a> &nbsp; <a href="https://aclanthology.org/2020.coling-main.314/"><i class="bi bi-bookmark-check-fill"></i> Publisher</a></p>
 </div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Hang Le </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Juan Pino </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Meta AI
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Changhan Wang </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Meta AI
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Jiatao Gu </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Meta AI
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Didier Schwab </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Laurent Besacier </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+    </div>
+
 <div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2020</p>
+    </div>
   </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    We introduce dual-decoder Transformer, a new model architecture that jointly performs automatic speech recognition (ASR) and multilingual speech translation (ST). Our models are based on the original Transformer architecture (Vaswani et al., 2017) but consist of two decoders, each responsible for one task (ASR or ST). Our major contribution lies in how these decoders interact with each other: one decoder can attend to different information sources from the other via a dual-attention mechanism. We propose two variants of these architectures corresponding to two different levels of dependencies between the decoders, called the parallel and cross dual-decoder Transformers, respectively. Extensive experiments on the MuST-C dataset show that our models outperform the previously-reported highest translation performance in the multilingual settings, and outperform as well bilingual one-to-one results. Furthermore, our parallel models demonstrate no trade-off between ASR and ST compared to the vanilla multi-task architecture. Our code and pre-trained models are available at https://github.com/formiel/speech-translation.
+  </div>
+</div>
+
 </header>
-    <div class="about-links">
-  <a href="mailto:hang.le@univ-grenoble-alpes.fr" class="about-link" rel="" target="">
-    <i class="bi bi-envelope-at-fill"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://scholar.google.fr/citations?user=R4kaiOsAAAAJ" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="academicons:google-scholar"></iconify-icon> Scholar</span>
-  </a>
-  <a href="https://github.com/formiel" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://twitter.com/formiel" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
+
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="dual_decoder.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption margin-caption">The dual-decoder Transformers. Figure (a) shows the detailed architecture of the parallel dual-decoder Transformer, and Figure (b) shows its simplified view. The cross dual-decoder Transformer is very similar to the parallel one, except that the keys and values fed to the dual-attention layers come from the previous output, which is illustrated by Figure (c). Abbreviations: <strong>A</strong> (Attention), <strong>M</strong> (Merge), <strong>L</strong> (LayerNorm).</figcaption>
+</figure>
 </div>
-  </div>
-  <div class="about-contents"><div id="hero-heading">
-<p>I am a third-year PhD Candidate in Speech and Language Processing at <a href="http://lig-getalp.imag.fr/en/home/">GETALP</a>, a joint research team between Université Grenoble Alpes and CNRS. <!-- Prior to that, I obtained my [MSc in Data Sciences and Business Analytics](https://www.essec.edu/en/program/mscs/master-data-sciences-business-analytics/) from [CentraleSupélec](https://www.centralesupelec.fr/en) & [ESSEC](https://www.essec.edu).  --></p>
-<p>I am advised by Profs. <a href="https://cv.hal.science/didier-schwab">Didier Schwab</a> and <a href="https://cv.hal.science/benjamin-lecouteux">Benjamin Lecouteux</a>. During my first year, I was also advised by Prof.&nbsp;<a href="https://scholar.google.com/citations?user=Uu-ivVwAAAAJ&amp;hl=fr">Laurent Besacier</a>.</p>
-<p>The research of my PhD focuses on multilingual speech translation. Prior to that, I also worked on a French language model called <a href="https://arxiv.org/abs/1912.05372">Flaubert</a> as part of my MSc internship.</p>
-<!-- I am currently a postdoctoral researcher at the [THOTH](https://team.inria.fr/thoth/) team of [Inria Grenoble Rhône-Alpes](https://www.inria.fr/en/centre-inria-grenoble-rhone-alpes), working with [Karteek Alahari](https://lear.inrialpes.fr/people/alahari/) since June 2020. From April 2018 to February 2020, I led the AI team of [Qopius](https://www.qopius.com), a computer vision startup based in Paris (acquired by [Trax](https://traxretail.com) in February 2020). Prior to that, I obtained a PhD in Computer Science from [CentraleSupélec](https://www.centralesupelec.fr), [Université Paris-Saclay](https://www.universite-paris-saclay.fr), where I was advised by [Nikos Paragios](http://cvn.centralesupelec.fr/~nikos). -->
-<section id="education" class="level4">
-<h4 data-anchor-id="education">Education</h4>
-<p>2020-2023 | <strong>PhD in Computer Science</strong> | Université Grenoble Alpes</p>
-<p>2018-2019 | <strong>MSc in Data Sciences and Business Analytics</strong> | CentraleSupélec &amp; ESSEC</p>
-<!-- 2017-2011 | **BA in International Business Economics** | Foreign Trade University, Vietnam -->
+<section id="citation" class="level3">
+<h3 class="anchored" data-anchor-id="citation">Citation</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@inproceedings</span>{<span class="ot">le2020dualdecoder</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>       = {Hang Le and</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                  Juan Miguel Pino and</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                  Changhan Wang and</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                  Jiatao Gu and</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                  Didier Schwab and</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                  Laurent Besacier},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>        = {Dual-decoder Transformer for Joint Automatic Speech Recognition and</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                  Multilingual Speech Translation},</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>    = {{COLING}},</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>        = {3520--3533},</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>    = {International Committee on Computational Linguistics},</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>         = {2020}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
-</div></div>
-</div>
-
-<section id="news" class="level1 news">
-<h1>News</h1>
-<ul>
-<li>2023-04-24: <a href="publications/ctc-optimal-transport/">CTC Meets Optimal Transport</a> has been accepted for an <strong>oral presentation</strong> at <strong>ICML 2023</strong>.</li>
-<li>2023-01-27: New preprint: <a href="https://arxiv.org/abs/2301.11716">Pre-training for Speech Translation: CTC Meets Optimal Transport</a>.</li>
-<li>2021-05-06: Our work on <a href="publications/adapter/">Lightweight Adapter Tuning for Multilingual Speech Translation</a> has been accepted at <strong>ACL 2021</strong>.</li>
-<li>2020-10-22: Our work on <a href="publications/dual-decoder-transformer/">Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation</a> has been accepted for an <strong>oral presentation</strong> at <strong>COLING 2020</strong>.</li>
-</ul>
-</section>
-
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -204,6 +299,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

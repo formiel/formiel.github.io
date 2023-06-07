@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "publications/dual-decoder-transformer/index.html",
+    "href": "publications/dual-decoder-transformer/index.html",
+    "title": "Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation",
+    "section": "",
+    "text": "The dual-decoder Transformers. Figure (a) shows the detailed architecture of the parallel dual-decoder Transformer, and Figure (b) shows its simplified view. The cross dual-decoder Transformer is very similar to the parallel one, except that the keys and values fed to the dual-attention layers come from the previous output, which is illustrated by Figure (c). Abbreviations: A (Attention), M (Merge), L (LayerNorm).\n\n\n\nCitation\n@inproceedings{le2020dualdecoder,\n  author       = {Hang Le and\n                  Juan Miguel Pino and\n                  Changhan Wang and\n                  Jiatao Gu and\n                  Didier Schwab and\n                  Laurent Besacier},\n  title        = {Dual-decoder Transformer for Joint Automatic Speech Recognition and\n                  Multilingual Speech Translation},\n  booktitle    = {{COLING}},\n  pages        = {3520--3533},\n  publisher    = {International Committee on Computational Linguistics},\n  year         = {2020}\n}"
+  },
+  {
+    "objectID": "publications/adapter/index.html",
+    "href": "publications/adapter/index.html",
+    "title": "Lightweight Adapter Tuning for Multilingual Speech Translation",
+    "section": "",
+    "text": "(a) Transformer with adapters at its FFN sub-layers. For simplicity, layer normalization is omitted. During fine-tuning, only the adapters are trained. (b) A typical adapter architecture.\n\n\n\nCitation\n@inproceedings{le2021lightweight,\n  author       = {Hang Le and\n                  Juan Miguel Pino and\n                  Changhan Wang and\n                  Jiatao Gu and\n                  Didier Schwab and\n                  Laurent Besacier},\n  title        = {Lightweight Adapter Tuning for Multilingual Speech Translation},\n  booktitle    = {{ACL/IJCNLP} {(2)}},\n  pages        = {817--824},\n  publisher    = {Association for Computational Linguistics},\n  year         = {2021}\n}"
+  },
+  {
+    "objectID": "publications/index.html",
+    "href": "publications/index.html",
+    "title": "Selected publications",
+    "section": "",
+    "text": "Selected publications\n\n\n\n\n\n  \n\n\n\n\nPre-training for Speech Translation: CTC Meets Optimal Transport\n\n\nInternational Conference on Machine Learning (ICML), 2023 Oral presentation   PDF    Code    Poster    Slides    Video    Publisher\n\n\n\n\n\n\nPhuong-Hang Le, Hongyu Gong, Changhan Wang, Juan Pino, Benjamin Lecouteux, Didier Schwab\n\n\n\n\n\n\n  \n\n\n\n\nTask Agnostic and Task Specific Self-Supervised Learning from Speech with LeBenchmark\n\n\nThe Neural Information Processing Systems Track on Datasets and Benchmarks 1 (NeurIPS Datasets and Benchmarks), 2021    PDF    Code    Publisher\n\n\n\n\n\n\nSolène Evain*, Ha Nguyen*, Hang Le*, Marcely Zanon Boito*, Salima Mdhaffar*, Sina Alisamir*, Ziyi Tong, Natalia Tomashenko*, Marco Dinarelli*, Titouan Parcollet*, Alexandre Allauzen, Yannick Estève, Benjamin Lecouteux, François Portet, Solange Rossato, Fabien Ringeval, Didier Schwab, Laurent Besacier\n\n\n\n\n\n\n  \n\n\n\n\nLightweight Adapter Tuning for Multilingual Speech Translation\n\n\nAnnual Meeting of the Association for Computational Linguistics (ACL), 2021    PDF    Code    Poster    Slides    Video    Publisher\n\n\n\n\n\n\nHang Le, Juan Pino, Changhan Wang, Jiatao Gu, Didier Schwab, Laurent Besacier\n\n\n\n\n\n\n  \n\n\n\n\nDual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation\n\n\nInternational Conference on Computational Linguistics (COLING), 2020 Oral presentation   PDF    Code    Short slides    Slides    Video    Publisher\n\n\n\n\n\n\nHang Le, Juan Pino, Changhan Wang, Jiatao Gu, Didier Schwab, Laurent Besacier\n\n\n\n\n\n\n  \n\n\n\n\nFlauBERT: Unsupervised Language Model Pre-training for French\n\n\nThe Language Resources and Evaluation Conference (LREC), 2020   PDF    Code    Slides    Video    Publisher\n\n\n\n\n\n\nHang Le, Loïc Vial, Jibril Frej, Vincent Segonne, Maximin Coavoux, Benjamin Lecouteux, Alexandre Allauzen, Benoît Crabbé, Laurent Besacier, Didier Schwab\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\nAll publications\nAuthors marked with an asterisk (*) contributed equally.\n\n\n2023\n\nPhuong-Hang Le, Hongyu Gong, Changhan Wang, Juan Pino, Benjamin Lecouteux, and Didier Schwab. Pre-training for Speech Translation: CTC Meets Optimal Transport. In International Conference on Machine Learning (ICML 2023, oral).\n\n\n\n2022\n\nSolène Evain, Ha Nguyen, Hang Le, Marcely Zanon Boito, Salima Mdhaffar, Sina Alisamir, Ziyi Tong, Natalia Tomashenko, Marco Dinarelli, Titouan Parcollet, Alexandre Allauzen, Benjamin Lecouteux, François Portet, Solange Rossato, Fabien Ringeval, Didier Schwab, Laurent Besacier. Modèles neuronaux pré-appris par auto-supervision sur des enregistrements de parole en français. In Journées d’Études sur la Parole (JEP 2022).\nHang Le, Sina Alisamir, Marco Dinarelli, Fabien Ringeval, Solène Evain, Ha Nguyen, Marcely Zanon Boito, Salima Mdhaffar, Ziyi Tong, Natalia Tomashenko, Titouan Parcollet, Alexandre Allauzen, Yannick Estève, Benjamin Lecouteux, François Portet, Solange Rossato, Didier Schwab, Laurent Besacier. LeBenchmark, un référentiel d’évaluation pour le français oral. In Journées d’Études sur la Parole (JEP 2022).\n\n\n\n2021\n\nSolène Evain*, Manh Ha Nguyen*, Hang Le*, Marcely Zanon Boito*, Salima Mdhaffar*, Sina Alisamir*, Ziyi Tong, Natalia Tomashenko*, Marco Dinarelli*, Titouan Parcollet*, Alexandre Allauzen, Yannick Estève, Benjamin Lecouteux, François Portet, Solange Rossato, Fabien Ringeval, Didier Schwab, Laurent Besacier. Task agnostic and task specific self-supervised learning from speech with lebenchmark. In Neural Information Processing Systems (NeurIPS 2021, Datasets and Benchmarks Track).\nSolène Evain*, Manh Ha Nguyen*, Hang Le*, Marcely Zanon Boito*, Salima Mdhaffar*, Sina Alisamir*, Ziyi Tong, Natalia Tomashenko*, Marco Dinarelli*, Titouan Parcollet*, Alexandre Allauzen, Yannick Estève, Benjamin Lecouteux, François Portet, Solange Rossato, Fabien Ringeval, Didier Schwab, Laurent Besacier. LeBenchmark: A Reproducible Framework for Assessing Self-Supervised Representation Learning from Speech. In Annual Conference of the International Speech Communication Association (INTERSPEECH 2021).\nHang Le, Juan Pino, Changhan Wang, Jiatao Gu, Didier Schwab, Laurent Besacier. Lightweight Adapter Tuning for Multilingual Speech Translation. In Annual Meeting of the Association for Computational Linguistics (ACL 2021).\n\n\n\n2020\n\nHang Le, Juan Pino, Changhan Wang, Jiatao Gu, Didier Schwab, Laurent Besacier. Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation. In International Conference on Computational Linguistics (COLING 2020, oral).\n\n\n\n2019\n\nHang Le, Loïc Vial, Jibril Frej, Vincent Segonne, Maximin Coavoux, Benjamin Lecouteux, Alexandre Allauzen, Benoît Crabbé, Laurent Besacier, Didier Schwab. FlauBERT: Unsupervised Language Model Pre-training for French. In The Language Resources and Evaluation Conference (LREC 2020).\nHang Le, Loïc Vial, Jibril Frej, Vincent Segonne, Maximin Coavoux, Benjamin Lecouteux, Alexandre Allauzen, Benoît Crabbé, Laurent Besacier, Didier Schwab. FlauBERT: des modèles de langue contextualisés pré-entraînés pour le français. In Actes de la 6e conférence conjointe Journées d’Études sur la Parole (JEP 2020), Traitement Automatique des Langues Naturelles (TALN 2020)."
+  },
+  {
+    "objectID": "publications/ctc-optimal-transport/index.html",
+    "href": "publications/ctc-optimal-transport/index.html",
+    "title": "Pre-training for Speech Translation: CTC Meets Optimal Transport",
+    "section": "",
+    "text": "Our proposed Siamese-like architecture for learning to align speech and text representations. An input pair of audio sequence and its transcript are fed to the corresponding speech and text encoders, then their outputs are compared using optimal transport (OT). The speech features are enhanced by jointly training with CTC.\n\n\n\nCitation\n@inproceedings{le2023pretraining,\n  author       = {Le, Phuong-Hang and \n                  Gong, Hongyu and\n                  Wang, Changhan and \n                  Pino, Juan and \n                  Lecouteux, Benjamin and \n                  Schwab, Didier},\n  title        = {Pre-training for Speech Translation: CTC Meets Optimal Transport},\n  booktitle    = {{ICML}},\n  series       = {Proceedings of Machine Learning Research},\n  publisher    = {{PMLR}},\n  year         = {2023}\n}"
+  },
+  {
+    "objectID": "publications/flaubert/index.html",
+    "href": "publications/flaubert/index.html",
+    "title": "FlauBERT: Unsupervised Language Model Pre-training for French",
+    "section": "",
+    "text": "Comparison between FlauBERT and previous work.\n\n\n\nCitation\n@inproceedings{le2020flaubert,\n  author       = {Hang Le and\n                  Lo{\\\"{\\i}}c Vial and\n                  Jibril Frej and\n                  Vincent Segonne and\n                  Maximin Coavoux and\n                  Benjamin Lecouteux and\n                  Alexandre Allauzen and\n                  Beno{\\^{\\i}}t Crabb{\\'{e}} and\n                  Laurent Besacier and\n                  Didier Schwab},\n  title        = {FlauBERT: Unsupervised Language Model Pre-training for French},\n  booktitle    = {{LREC}},\n  pages        = {2479--2490},\n  publisher    = {European Language Resources Association},\n  year         = {2020}\n}"
+  },
+  {
+    "objectID": "publications/task-agnostic-and-specific/index.html",
+    "href": "publications/task-agnostic-and-specific/index.html",
+    "title": "Task Agnostic and Task Specific Self-Supervised Learning from Speech with LeBenchmark",
+    "section": "",
+    "text": "BLEU on valid and test sets of multilingual TEDx (mTEDx). The highest value in each group (task-agnostic pre-training, task-specific self-supervised, and supervised fine-tuning) is underlined while the best value in each column is highlighted in bold. Gray numbers denote the standard deviation computed using bootstrap re-sampling.\n\n\n\nCitation\n@inproceedings{evain2021task,\n  author       = {Sol{\\`{e}}ne Evain and\n                  Ha Nguyen and\n                  Hang Le and\n                  Marcely Zanon Boito and\n                  Salima Mdhaffar and\n                  Sina Alisamir and\n                  Ziyi Tong and\n                  Natalia A. Tomashenko and\n                  Marco Dinarelli and\n                  Titouan Parcollet and\n                  Alexandre Allauzen and\n                  Yannick Est{\\`{e}}ve and\n                  Benjamin Lecouteux and\n                  Fran{\\c{c}}ois Portet and\n                  Solange Rossato and\n                  Fabien Ringeval and\n                  Didier Schwab and\n                  Laurent Besacier},\n  title        = {Task Agnostic and Task Specific Self-Supervised Learning from Speech\n                  with LeBenchmark},\n  booktitle    = {NeurIPS Datasets and Benchmarks},\n  year         = {2021}\n}"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Phuong-Hang Le",
+    "section": "",
+    "text": "Email\n  \n  \n      Scholar\n  \n  \n    \n     Github\n  \n  \n    \n     Twitter\n  \n\n  \n  \nI am a third-year PhD Candidate in Speech and Language Processing at GETALP, a joint research team between Université Grenoble Alpes and CNRS. \nI am advised by Profs. Didier Schwab and Benjamin Lecouteux. During my first year, I was also advised by Prof. Laurent Besacier.\nThe research of my PhD focuses on multilingual speech translation. Prior to that, I also worked on a French language model called Flaubert as part of my MSc internship.\n\n\nEducation\n2020-2023 | PhD in Computer Science | Université Grenoble Alpes\n2018-2019 | MSc in Data Sciences and Business Analytics | CentraleSupélec & ESSEC\n\n\n\n\n\n\nNews\n\n2023-04-24: CTC Meets Optimal Transport has been accepted for an oral presentation at ICML 2023.\n2023-01-27: New preprint: Pre-training for Speech Translation: CTC Meets Optimal Transport.\n2021-05-06: Our work on Lightweight Adapter Tuning for Multilingual Speech Translation has been accepted at ACL 2021.\n2020-10-22: Our work on Dual-decoder Transformer for Joint Automatic Speech Recognition and Multilingual Speech Translation has been accepted for an oral presentation at COLING 2020."
+  },
+  {
+    "objectID": "publications_test.html",
+    "href": "publications_test.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Pre-training for Speech Translation: CTC Meets Optimal Transport\n\nPhuong-Hang Le, Hongyu Gong, Changhan Wang, Juan Pino, Benjamin Lecouteux, Didier Schwab\nInternational Conference on Machine Learning (ICML) 2023 (Oral)\nPaper | Code\n\n\n\n\n\n\n\n\n\n\n\n\nPre-training for Speech Translation: CTC Meets Optimal Transport\nPhuong-Hang Le, Hongyu Gong, Changhan Wang, Juan Pino, Benjamin Lecouteux, Didier Schwab\nInternational Conference on Machine Learning (ICML) 2023 (Oral)\nPaper | Code"
+  },
+  {
+    "objectID": "publications_test.html#section",
+    "href": "publications_test.html#section",
+    "title": "Publications",
+    "section": "",
+    "text": "Pre-training for Speech Translation: CTC Meets Optimal Transport\n\nPhuong-Hang Le, Hongyu Gong, Changhan Wang, Juan Pino, Benjamin Lecouteux, Didier Schwab\nInternational Conference on Machine Learning (ICML) 2023 (Oral)\nPaper | Code\n\n\n\n\n\n\n\n\n\n\n\n\nPre-training for Speech Translation: CTC Meets Optimal Transport\nPhuong-Hang Le, Hongyu Gong, Changhan Wang, Juan Pino, Benjamin Lecouteux, Didier Schwab\nInternational Conference on Machine Learning (ICML) 2023 (Oral)\nPaper | Code"
+  },
+  {
+    "objectID": "publications_test.html#section-1",
+    "href": "publications_test.html#section-1",
+    "title": "Publications",
+    "section": "2021",
+    "text": "2021"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "blog-quarto",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJun 5, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJun 2, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  }
+]

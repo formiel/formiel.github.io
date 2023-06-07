@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">FlauBERT: Unsupervised Language Model Pre-training for French</h1>
-<p class="subtitle lead">The Language Resources and Evaluation Conference (LREC), 2020 <br><br> <a href="https://aclanthology.org/2020.lrec-1.302.pdf"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a> &nbsp; <a href="https://github.com/getalp/Flaubert/"><i class="bi bi-github"></i> Code</a> &nbsp; <a href=""><i class="bi bi-file-slides-fill"></i> Slides</a> &nbsp; <a href="https://www.youtube.com/watch?v=NgLM9GuwSwc"><i class="bi bi-file-play-fill"></i> Video</a> &nbsp; <a href="https://aclanthology.org/2020.lrec-1.302/"><i class="bi bi-bookmark-check-fill"></i> Publisher</a></p>
+<p class="subtitle lead">The Language Resources and Evaluation Conference (LREC), 2020 <br><br> <a href="https://aclanthology.org/2020.lrec-1.302.pdf"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a> &nbsp; <a href="https://github.com/getalp/Flaubert/"><i class="bi bi-github"></i> Code</a> &nbsp; <a href="slides.pdf"><i class="bi bi-file-slides-fill"></i> Slides</a> &nbsp; <a href="https://www.youtube.com/watch?v=NgLM9GuwSwc"><i class="bi bi-file-play-fill"></i> Video</a> &nbsp; <a href="https://aclanthology.org/2020.lrec-1.302/"><i class="bi bi-bookmark-check-fill"></i> Publisher</a></p>
 </div>
 
 
@@ -288,12 +288,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<!-- ![Comparison between FlauBERT and previous work.](comparison.png) -->
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="comparison.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Comparison between FlauBERT and previous work.</figcaption>
+<p><img src="transformer.svg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption margin-caption"><strong>Pre-norm configuration of the encoder-decoder Transformer model</strong>. In an updated implementation of the Transformer (Vaswani et al., 2018), layer normalization is applied before each sub-layer (attention or FFN module) by default, rather than after each residual block as in the original implementation (Vaswani et al., 2017). These configurations are called pre-norm and post-norm, respectively. It was observed by Vaswani et al.&nbsp;(2018), and again confirmed by later works e.g.&nbsp;(Wang et al., 2019b; Xu et al., 2019; Nguyen and Salazar, 2019), that pre-norm helps stabilize training. For training FlauBERT<sub>LARGE</sub>, we employed the pre-norm configuration and stochastic depths for the <em>Transformer Encoder</em>.</figcaption>
 </figure>
 </div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/NgLM9GuwSwc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="citation" class="level3">
 <h3 class="anchored" data-anchor-id="citation">Citation</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@inproceedings</span>{<span class="ot">le2020flaubert</span>,</span>

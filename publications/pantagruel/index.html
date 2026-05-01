@@ -7,14 +7,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Phuong-Hang Le">
-<meta name="author" content="Hongyu Gong">
-<meta name="author" content="Changhan Wang">
-<meta name="author" content="Juan Pino">
+<meta name="author" content="Valentin Pelloin">
+<meta name="author" content="Arnault Chatelain">
+<meta name="author" content="Maryem Bouziane">
+<meta name="author" content="Mohammed Ghennai">
+<meta name="author" content="Qianwen Guan">
+<meta name="author" content="Kirill Milintsevich">
+<meta name="author" content="Salima Mdhaffar">
+<meta name="author" content="Aidan Mannion">
+<meta name="author" content="Nils Defauw">
+<meta name="author" content="Shuyue Gu">
+<meta name="author" content="Alexandre Audibert">
+<meta name="author" content="Marco Dinarelli">
+<meta name="author" content="Yannick Estève">
+<meta name="author" content="Lorraine Goeuriot">
+<meta name="author" content="Steffen Lalande">
+<meta name="author" content="Nicolas Hervé">
+<meta name="author" content="Maximin Coavoux">
+<meta name="author" content="François Portet">
+<meta name="author" content="Étienne Ollion">
+<meta name="author" content="Marie Candito">
+<meta name="author" content="Maxime Peyrard">
+<meta name="author" content="Solange Rossato">
 <meta name="author" content="Benjamin Lecouteux">
+<meta name="author" content="Aurélie Nardy">
+<meta name="author" content="Gilles Sérasset">
+<meta name="author" content="Vincent Segonne">
+<meta name="author" content="Solène Evain">
+<meta name="author" content="Diandra Fabre">
 <meta name="author" content="Didier Schwab">
-<meta name="dcterms.date" content="2023-01-01">
+<meta name="dcterms.date" content="2026-01-01">
 
-<title>Phuong-Hang Le - Pre-training for Speech Translation: CTC Meets Optimal Transport</title>
+<title>Phuong-Hang Le - Pantagruel: Unified Self-Supervised Encoders for French Text and Speech</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -171,8 +195,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pre-training for Speech Translation: CTC Meets Optimal Transport</h1>
-<p class="subtitle lead">International Conference on Machine Learning (ICML), 2023<br> <strong>Oral presentation</strong> <br><br> <a href="https://arxiv.org/abs/2301.11716"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a> &nbsp; <a href="https://github.com/formiel/fairseq/tree/siamese_s2t/examples/speech_text_siamese"><i class="bi bi-github"></i> Code</a> &nbsp; <a href="../../publications/ctc-optimal-transport/poster_3999.pdf"><i class="bi bi-postage-fill"></i> Poster</a> &nbsp; <a href="https://icml.cc/virtual/2023/oral/25497"><i class="bi bi-file-slides-fill"></i> Slides</a> &nbsp; <a href="https://icml.cc/virtual/2023/oral/25497"><i class="bi bi-file-play-fill"></i> Video</a> &nbsp; <a href="https://icml.cc/virtual/2023/oral/25497"><i class="bi bi-bookmark-check-fill"></i> Publisher</a></p>
+<h1 class="title">Pantagruel: Unified Self-Supervised Encoders for French Text and Speech</h1>
+<p class="subtitle lead">Language Resources and Evaluation Conference (LREC), 2026<br> <br><br> <a href="https://arxiv.org/abs/2601.05911"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a> &nbsp; <a href="https://huggingface.co/PantagrueLLM"><i class="bi bi-robot"></i> HuggingFace Models</a> &nbsp; <a href="https://github.com/formiel/fairseq"><i class="bi bi-github"></i> Code</a></p>
 </div>
 
 
@@ -185,35 +209,230 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
+            Saclay AI
+          </p>
+        <p class="affiliation">
             Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
           </p>
       </div>
       <div class="quarto-title-meta-contents">
-    <p class="author">Hongyu Gong </p>
+    <p class="author">Valentin Pelloin </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Meta AI
+            INA (Institut National de l’Audiovisuel)
           </p>
       </div>
       <div class="quarto-title-meta-contents">
-    <p class="author">Changhan Wang </p>
+    <p class="author">Arnault Chatelain </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Meta AI
+            CREST (École Polytechnique, ENSAE, CNRS)
           </p>
       </div>
       <div class="quarto-title-meta-contents">
-    <p class="author">Juan Pino </p>
+    <p class="author">Maryem Bouziane </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Meta AI
+            Avignon Université, LIA
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Mohammed Ghennai </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Qianwen Guan </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            LLF (Université Paris Cité and CNRS)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Kirill Milintsevich </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            INA (Institut National de l’Audiovisuel)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Salima Mdhaffar </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Avignon Université, LIA
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Aidan Mannion </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Nils Defauw </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, EFELIA-MIAI, IUT2 Grenoble, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Shuyue Gu </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            LLF (Université Paris Cité and CNRS)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Alexandre Audibert </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Marco Dinarelli </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Yannick Estève </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Avignon Université, LIA
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Lorraine Goeuriot </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Steffen Lalande </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            INA (Institut National de l’Audiovisuel)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Nicolas Hervé </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            INA (Institut National de l’Audiovisuel)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Maximin Coavoux </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">François Portet </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Étienne Ollion </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            CREST (École Polytechnique, ENSAE, CNRS)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Marie Candito </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            LLF (Université Paris Cité and CNRS)
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Maxime Peyrard </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Solange Rossato </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
           </p>
       </div>
       <div class="quarto-title-meta-contents">
     <p class="author">Benjamin Lecouteux </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Aurélie Nardy </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, Lidilem
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Gilles Sérasset </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Univ. Grenoble Alpes, CNRS, Grenoble INP, LIG
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Vincent Segonne </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Université Bretagne Sud, CNRS, IRISA
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Solène Evain </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            IRIT, Université de Toulouse, CNRS, Toulouse INP, UT3
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Diandra Fabre </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -236,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023</p>
+      <p class="date">2026</p>
     </div>
   </div>
   
@@ -246,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
-    The gap between speech and text modalities is a major challenge in speech-to-text translation (ST). Different methods have been proposed to reduce this gap, but most of them require architectural changes in ST training. In this work, we propose to mitigate this issue at the pre-training stage, requiring no change in the ST model. First, we show that the connectionist temporal classification (CTC) loss can reduce the modality gap by design. We provide a quantitative comparison with the more common cross-entropy loss, showing that pre-training with CTC consistently achieves better final ST accuracy. Nevertheless, CTC is only a partial solution and thus, in our second contribution, we propose a novel pre-training method combining CTC and optimal transport to further reduce this gap. Our method pre-trains a Siamese-like model composed of two encoders, one for acoustic inputs and the other for textual inputs, such that they produce representations that are close to each other in the Wasserstein space. Extensive experiments on the standard CoVoST-2 and MuST-C datasets show that our pre-training method applied to the vanilla encoder-decoder Transformer achieves state-of-the-art performance under the no-external-data setting, and performs on par with recent strong multi-task learning systems trained with external data. Finally, our method can also be applied on top of these multi-task systems, leading to further improvements for these models.
+    We release Pantagruel models, a new family of self-supervised encoder models for French text and speech. Instead of predicting modality-tailored targets such as textual tokens or speech units, Pantagruel learns contextualized target representations in the feature space, allowing modality-specific encoders to capture linguistic and acoustic regularities more effectively. Separate models are pre-trained on large-scale French corpora, including Wikipedia, OSCAR and CroissantLLM for text, together with MultilingualLibriSpeech, LeBenchmark, and INA-100k for speech. INA-100k is a newly introduced 100,000-hour corpus of French audio derived from the archives of the Institut National de l’Audiovisuel (INA), the national repository of French radio and television broadcasts, providing highly diverse audio data. We evaluate Pantagruel across a broad range of downstream tasks spanning both modalities, including those from the standard French benchmarks such as FLUE or LeBenchmark. Across these tasks, Pantagruel models show competitive or superior performance compared to strong French baselines such as CamemBERT, FlauBERT, and LeBenchmark2.0, while maintaining a shared architecture that can seamlessly handle either speech or text inputs. These results confirm the effectiveness of feature-space self-supervised objectives for French representation learning and highlight Pantagruel as a robust foundation for multimodal speech-text understanding.
   </div>
 </div>
 
@@ -254,35 +473,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="siamese_training.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption"><strong>Our proposed Siamese-like architecture for learning to align speech and text representations</strong>. An input pair of audio sequence and its transcript are fed to the corresponding speech and text encoders, then their outputs are compared using optimal transport (OT). The speech features are enhanced by jointly training with CTC.</figcaption>
+<p><img src="pantagruel.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption margin-caption">Overview of the Pantagruel architecture. The network starts with a modality-specific pre-net to extract feature vectors from the input text/speech sequence. These features are input to a teacher encoder, while randomly chosen visible tokens (in blue) are input to a student encoder. A lightweight decoder predicts the teacher’s latent representations from the student’s outputs. For text input, an additional masked language modeling~(MLM) loss is used. The teacher’s parameters are updated as an exponential moving average (EMA) of the student’s. After training, only the embedding layer and the student encoder are used for fine-tuning on downstream tasks.</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="enc_outputs.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Below is the visualization of the outputs from three speech encoders pre-trained with different losses (cross-entropy, CTC, and CTC + OT), alongside the outputs of the text encoder (shown in red) for the corresponding transcripts. The results show that the speech encoder trained with cross-entropy produces embedding clusters that are more distant from those of the text encoder than those produced by the CTC-trained encoder. In the meantime, the encoder trained with CTC + OT generates embeddings that nearly overlap with those of the text encoder, showing that OT is very effective to reduce the speech-text alignment gap.</figcaption>
-</figure>
-</div>
-<section id="poster" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="poster">Poster</h3>
-<div class="column-screen">
-<p><img src="poster_3999.jpg" class="img-fluid"></p>
-</div>
-</section>
+<!-- ### Poster
+
+:::{.column-screen}
+![](pantagruel.png)
+::: -->
 <section id="citation" class="level3">
 <h3 class="anchored" data-anchor-id="citation">Citation</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@inproceedings</span>{<span class="ot">le2023pretraining</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>       = {Le, Phuong-Hang and </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                  Gong, Hongyu and</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                  Wang, Changhan and </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                  Pino, Juan and </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                  Lecouteux, Benjamin and </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                  Schwab, Didier},</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>        = {Pre-training for Speech Translation: CTC Meets Optimal Transport},</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>    = {Proceedings of the 40th International Conference on Machine Learning (ICML)},</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>         = {2023}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@inproceedings</span>{<span class="ot">le2026pantagruel</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>   = {Pantagruel: Unified Self-Supervised Encoders for French Text and Speech},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>  = {Phuong-Hang Le and</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            Valentin Pelloin and</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            Arnault Chatelain and</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            Maryem Bouziane and</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            Mohammed Ghennai and</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            Qianwen Guan and</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            Kirill Milintsevich and</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            Salima Mdhaffar and</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            Aidan Mannion and</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            Nils Defauw and</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            Shuyue Gu and</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            Alexandre Audibert and</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            Marco Dinarelli and</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            Yannick Est{<span class="ch">\`</span>e}ve and</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            Lorraine Goeuriot and</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            Steffen Lalande and</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            Nicolas Herv{<span class="ch">\'</span>e} and</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            Maximin Coavoux and</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            Fran{<span class="ch">\c</span> c}ois Portet and</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            {<span class="ch">\'</span>E}tienne Ollion and</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            Marie Candito and</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            Maxime Peyrard and</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            Solange Rossato and</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            Benjamin Lecouteux and</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            Aur{<span class="ch">\'</span>e}lie Nardy and</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            Gilles S{<span class="ch">\'</span>e}rasset and</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            Vincent Segonne and</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            Sol{<span class="ch">\`</span>e}ne Evain and</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            Diandra Fabre and</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            Didier Schwab},</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>    = {Proceedings of the 15th Language Resources and Evaluation Conference (LREC)},</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>    = {European Language Resources Association},</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>         = {2026}</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

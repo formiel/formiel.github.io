@@ -2,6 +2,7 @@
   {
     "listing": "/publications/index.html",
     "items": [
+      "/publications/pantagruel/index.html",
       "/publications/ctc-optimal-transport/index.html",
       "/publications/task-agnostic-and-specific/index.html",
       "/publications/adapter/index.html",

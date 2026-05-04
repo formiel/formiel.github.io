@@ -477,11 +477,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption margin-caption">Overview of the Pantagruel architecture. The network starts with a modality-specific pre-net to extract feature vectors from the input text/speech sequence. These features are input to a teacher encoder, while randomly chosen visible tokens (in blue) are input to a student encoder. A lightweight decoder predicts the teacher’s latent representations from the student’s outputs. For text input, an additional masked language modeling~(MLM) loss is used. The teacher’s parameters are updated as an exponential moving average (EMA) of the student’s. After training, only the embedding layer and the student encoder are used for fine-tuning on downstream tasks.</figcaption>
 </figure>
 </div>
-<!-- ### Poster
-
-:::{.column-screen}
-![](pantagruel.png)
-::: -->
+<section id="poster" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="poster">Poster</h3>
+<div class="column-screen">
+<p><img src="poster_930.jpg" class="img-fluid"></p>
+</div>
+</section>
 <section id="citation" class="level3">
 <h3 class="anchored" data-anchor-id="citation">Citation</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@inproceedings</span>{<span class="ot">le2026pantagruel</span>,</span>
